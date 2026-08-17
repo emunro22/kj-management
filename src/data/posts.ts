@@ -720,6 +720,319 @@ export const posts: Post[] = [
 
 <p>This is general guidance rather than advice tailored to your business — if you are not sure which stage you are at, we are happy to talk it through with no obligation.</p>`,
   },
+  {
+    slug: 'how-often-should-you-review-your-management-accounts',
+    title: 'How Often Should You Review Your Management Accounts?',
+    date: '2026-04-22',
+    excerpt:
+      'The baseline frequency most small businesses should stick to, and the signs that mean you need to be looking more often than that.',
+    body: `<p>Plenty of business owners only look properly at their numbers when the accountant sends them a set of accounts, or once a year at tax return time. That's enough to stay compliant, but it's not enough to actually run the business, because by the time an annual set of accounts lands, whatever it's telling you has usually already happened. The right frequency for reviewing management accounts depends on your business, but there's a sensible baseline to start from.</p>
+
+<h2>Monthly is the baseline for most small businesses</h2>
+<p>For most trading businesses, monthly is the minimum useful frequency. A month is long enough to smooth out the noise of a single busy or quiet week, but short enough that you can still act on what you see — chase a slow-paying customer, rein in a cost that's crept up, or adjust a forecast before a small problem becomes a big one. <a href="/services#management">Management accounting</a> that arrives monthly, with a proper profit and loss, balance sheet and cash position, gives you a running commentary on the business rather than a single snapshot once a year.</p>
+
+<h2>Why quarterly usually isn't often enough</h2>
+<p>Quarterly reviews feel manageable, but three months is a long time for a problem to run unchecked. A margin that's been slipping for ten weeks, a customer who's stopped paying on time, or overheads that have quietly crept up are all far easier to fix in month one than to unwind in month three. Quarterly reporting also makes it harder to compare against budget meaningfully, because a lot can drift in that window before anyone notices.</p>
+
+<h2>When you need to look more often than monthly</h2>
+<p>Some situations call for tighter cycles than a standard monthly review:</p>
+<ul>
+<li>Cash is tight, or you're close to the edge of your facilities or overdraft.</li>
+<li>You're growing quickly and costs are scaling ahead of revenue.</li>
+<li>You're going through a significant change — raising investment, taking on a large contract, or restructuring.</li>
+<li>You've recently made a change — a new pricing structure, a new hire, a new supplier deal — and want to see whether it's working before too much time passes.</li>
+</ul>
+<p>In these cases, a weekly or fortnightly cash flow check, alongside the monthly management accounts, is often worth the extra discipline.</p>
+
+<h2>When less frequent reporting can be fine</h2>
+<p>Very early-stage businesses with low transaction volumes, or those with a genuinely quiet off-season, sometimes get by with a lighter-touch review in the quieter months. The test isn't the calendar, it's whether enough is changing in the business that a gap in your visibility could let something go unnoticed. If very little is moving, monthly reporting can feel like overkill; if the business is more dynamic than that, it rarely is.</p>
+
+<h2>Consistency matters more than the exact interval</h2>
+<p>The real value of reviewing management accounts doesn't come from any single month's figures — it comes from looking at the same report, asking the same handful of questions, on the same schedule, so you can see <strong>trends</strong> rather than isolated numbers. An ad hoc glance when something feels wrong is better than nothing, but it means you're always reacting rather than spotting things early.</p>
+
+<p>This isn't a one-size-fits-all answer — the right frequency depends on your business and where it's at. If you're not sure your current reporting rhythm is giving you enough warning, we're happy to talk through what would work better for you.</p>`,
+  },
+  {
+    slug: 'payroll-basics-for-small-uk-employers-what-youre-responsible-for',
+    title: "Payroll Basics for Small UK Employers: What You're Responsible For",
+    date: '2026-05-06',
+    excerpt:
+      'What a small UK employer is legally responsible for once they take on staff, from registering as an employer to running payroll correctly each period.',
+    body: `<p>Taking on your first employee is a milestone, but it also means taking on a set of legal responsibilities that don't get much airtime until you're already in the middle of them. Payroll isn't just "paying people" — it's a recurring compliance obligation with HMRC, and getting it wrong has real consequences. Here's what a small UK employer is actually responsible for.</p>
+
+<h2>Registering as an employer</h2>
+<p>Before you pay anyone, you need to register as an employer with HMRC. This needs to happen before your first payday, and there are lead times involved, so it's not something to leave until the week you take someone on. Once registered, you'll be given the references you need to operate PAYE.</p>
+
+<h2>Running PAYE correctly, every pay period</h2>
+<p>Pay As You Earn (<strong>PAYE</strong>) is the system through which you deduct Income Tax and National Insurance from an employee's pay before they receive it, and pass those deductions on to HMRC. As the employer, you're responsible for:</p>
+<ul>
+<li>Calculating the correct deductions each pay period, based on each employee's tax code and circumstances.</li>
+<li>Reporting pay and deductions to HMRC on or before each payday, through Real Time Information submissions.</li>
+<li>Paying over the tax and National Insurance you've deducted, plus employer's National Insurance contributions, by the relevant deadline.</li>
+<li>Issuing payslips showing gross pay, deductions and net pay for every payment.</li>
+</ul>
+<p>Rates, thresholds and allowances change and are reviewed periodically, so always check the current figures on gov.uk rather than relying on what applied last year.</p>
+
+<h2>Workplace pensions and auto-enrolment</h2>
+<p>Most employers have a legal duty to automatically enrol eligible staff into a workplace pension scheme and to contribute to it. This applies from the point you take on your first employee, and it comes with its own ongoing duties — assessing staff at each pay run, keeping records, and re-enrolling eligible staff periodically. It's easy to treat this as a one-off setup task, but it's actually a recurring compliance obligation that runs alongside every payroll.</p>
+
+<h2>Statutory pay and leave</h2>
+<p>As an employer you're also responsible for administering statutory entitlements when they apply — statutory sick pay, statutory maternity, paternity and adoption pay, and holiday pay, among others. Each has its own qualifying conditions and calculation rules, and getting them wrong can leave you owing an employee money, or reporting inaccurate figures to HMRC. This is one of the areas where good record-keeping from day one saves a lot of retrospective untangling.</p>
+
+<h2>Keeping records</h2>
+<p>You're legally required to keep payroll records for a set number of years, covering pay, deductions, leave, and reports sent to HMRC. These records aren't just a filing formality — they're what you'd need to hand over if HMRC ever queried a payment, and what an employee might reasonably ask to see if there's ever a dispute about their pay.</p>
+
+<h2>Where this fits with the rest of your finances</h2>
+<p>Payroll doesn't sit in isolation — it feeds directly into your management accounts, your cash flow forecasting, and your year-end figures, so getting it wrong doesn't just create a compliance problem, it distorts the numbers you're relying on to run the business. If payroll is something you're setting up for the first time, it's worth having it sit alongside your <a href="/services#bookkeeping">bookkeeping</a> rather than bolted on as an afterthought.</p>
+
+<p>This is general information, not personalised advice for your specific circumstances — payroll rules have a lot of edge cases, so if you're about to take on your first employee, it's worth talking it through with an accountant before your first payday arrives.</p>`,
+  },
+  {
+    slug: 'making-tax-digital-what-it-means-for-your-bookkeeping',
+    title: 'Making Tax Digital: What It Means for Your Bookkeeping',
+    date: '2026-05-20',
+    excerpt:
+      'What Making Tax Digital actually requires from your bookkeeping, and the habits that make compliance straightforward rather than a scramble.',
+    body: `<p>Making Tax Digital (MTD) has been rolled out in stages across different taxes and different types of business, and it's easy to lose track of what actually applies to you and when. At its core, though, MTD changes one thing consistently: how your records need to be kept and how returns get filed. Understanding that principle matters more than memorising every phase of the rollout.</p>
+
+<h2>What Making Tax Digital actually requires</h2>
+<p>MTD requires two things, broadly: that relevant records are kept digitally, rather than on paper or in a set of spreadsheets nobody's updated in months, and that returns are submitted to HMRC using software that can connect directly to HMRC's systems, rather than typed manually into an online form. The intention is to reduce errors that come from re-keying figures by hand and to give HMRC — and you — a more current, accurate picture.</p>
+
+<h2>Where it currently applies</h2>
+<p>MTD for VAT has been in place for VAT-registered businesses for some time. MTD for Income Tax is being phased in for sole traders and landlords, with further phases planned. Because exactly who's in scope, and from when, depends on rules that are reviewed and updated, don't rely on a figure you read a while ago — check your specific position on gov.uk, since the rollout has moved in stages and the thresholds involved are periodically revisited.</p>
+
+<h2>What "digital records" actually means in practice</h2>
+<p>Digital record-keeping under MTD doesn't just mean having a spreadsheet — it means your records need to be kept in a way that supports a <strong>digital link</strong> between where a transaction is first recorded and where it ends up on your return, without manual re-typing breaking that chain. In practice, this is exactly what cloud accounting software like Xero is built to do: transactions are recorded once, categorised, and flow through to your return without being copied out by hand at any point.</p>
+
+<h2>What changes for your day-to-day bookkeeping</h2>
+<p>For a business that's already keeping tidy digital records in proper accounting software, MTD doesn't change very much in practice — the discipline it requires, recording transactions promptly, keeping them accurate, reconciling regularly, is simply good <a href="/services#bookkeeping">bookkeeping</a> anyway. Where it causes real disruption is for businesses still working from spreadsheets, paper records or a mix of both, because those records typically need re-working into a compliant digital format, often under time pressure once a deadline is confirmed.</p>
+<p>If you're not yet keeping digital records, it's worth doing sooner rather than later:</p>
+<ul>
+<li>Move bookkeeping into proper cloud accounting software before you're required to, rather than scrambling once a deadline is announced.</li>
+<li>Get comfortable with digital record-keeping as a habit, not just a one-off migration exercise.</li>
+<li>Check which phase of MTD applies to you and when, directly on gov.uk, rather than relying on general commentary — including this article.</li>
+</ul>
+
+<h2>Getting ahead of it rather than reacting to it</h2>
+<p>The businesses that find MTD painless are, almost without exception, the ones that were already keeping clean digital records before it became compulsory for them. The ones that find it stressful are usually the ones trying to convert years of spreadsheets or paper records into a compliant system in the weeks before a deadline. Moving early costs very little; leaving it late tends to cost a lot more, in both time and stress.</p>
+
+<p>This is general information, not a personalised assessment of your obligations — MTD rules and timings vary by business type and income level, so check your specific position on gov.uk or speak to an accountant. If you'd like help getting your bookkeeping into proper digital shape ahead of time, we're happy to help.</p>`,
+  },
+  {
+    slug: 'how-to-set-prices-that-actually-protect-your-margin',
+    title: 'How to Set Prices That Actually Protect Your Margin',
+    date: '2026-06-03',
+    excerpt:
+      'Why pricing on gut feel erodes margin without you noticing, and a straightforward way to price that protects what you actually take home.',
+    body: `<p>A lot of small business pricing decisions get made on gut feel — what competitors seem to charge, what feels "about right," or simply what a price was last year with a bit added on. None of that tells you whether a price actually protects your margin once every cost is accounted for. Pricing well isn't about charging more for its own sake, it's about making sure the number you charge actually leaves you with a profit once everything else is paid for.</p>
+
+<h2>Start from your costs, not your competitors</h2>
+<p>Competitor pricing is useful context, but it's a poor starting point, because you have no idea what their cost base, margins or objectives actually are — they might be pricing to win market share at a loss, or simply be wrong. Start instead from your own numbers: the direct cost of delivering whatever you sell — materials, direct labour, subcontractors, whatever applies — plus a fair share of your overheads, plus the margin you actually need to make the business worthwhile. Only once you know that figure does a competitor's price become useful information, rather than a guess dressed up as a benchmark.</p>
+
+<h2>Know your gross margin, not just your gross revenue</h2>
+<p><strong>Gross margin</strong> — what's left of a sale after the direct cost of delivering it — is the number that actually tells you whether a price is doing its job. A business can be growing revenue steadily while its margin quietly erodes, because costs have crept up and prices haven't kept pace. Reviewing gross margin by product, service line or job, rather than just looking at the business as a whole, usually reveals that some things are far more profitable than others — information that's easy to miss if you only ever look at the total.</p>
+
+<h2>Build in room for cost increases</h2>
+<p>Costs rarely stay flat for long — suppliers raise prices, wages increase, overheads creep. A price set once and left unreviewed for years is a price that's slowly losing you money in real terms, even if the number on the invoice hasn't changed. Reviewing prices on a set schedule, rather than only when something forces the issue, keeps margin protected rather than quietly eroding in the background.</p>
+
+<h2>Don't let discounting become the default</h2>
+<p>Discounting to win or keep a customer feels harmless in the moment, but a discount that becomes routine effectively resets your price downward without anyone deciding that on purpose. If discounts are a regular feature of how you sell, it's worth working out what they're actually doing to your margin across a full year, not just on the deal in front of you — the cumulative effect is often larger than it looks deal by deal.</p>
+
+<h2>Test price changes deliberately</h2>
+<p>Raising prices is uncomfortable, but a price increase that reflects real cost movement, applied clearly and confidently, rarely costs a business as many customers as owners fear it will. What tends to cause damage instead is an unplanned, reactive increase, applied inconsistently, with no clear explanation. Modelling the impact of a price change on your margin and cash flow before you make it, rather than finding out after the fact, takes away a lot of the guesswork — exactly the kind of forward-looking work our <a href="/services#financial">financial modelling</a> service is built for.</p>
+
+<h2>Make it a routine, not a one-off exercise</h2>
+<p>Pricing isn't something to set once and forget. Reviewing it alongside your regular management accounts — checking gross margin by product or service line, comparing it against cost movements, and deciding deliberately whether prices need to move — keeps it a live decision rather than something that only gets attention when a problem's already showing up in the numbers.</p>
+
+<p>This is general guidance, not a pricing strategy tailored to your business — the right approach depends on your market, your costs and your customers. If you'd like help understanding your margins properly before you next review your prices, get in touch.</p>`,
+  },
+  {
+    slug: 'should-you-outsource-your-finance-function-a-founders-checklist',
+    title: "Should You Outsource Your Finance Function? A Founder's Checklist",
+    date: '2026-06-17',
+    excerpt:
+      'The questions to work through before deciding whether outsourcing your finance function makes sense for your business right now.',
+    body: `<p>At some point almost every founder asks whether it's time to stop doing the books themselves, or to reconsider whoever currently does them, and bring in proper outsourced support instead. It's rarely an obvious yes or no — it depends on how much time finance is taking, how much you trust the numbers you currently see, and what stage the business is at. Here's a straightforward way to think it through.</p>
+
+<h2>How much of your time is finance actually taking?</h2>
+<p>Add up, honestly, how many hours a month you — or someone else who should be doing something more valuable — spend on invoicing, chasing payments, reconciling the bank, or trying to work out where the business actually stands. If that number is creeping up rather than staying steady, it's usually a sign the business has grown past what a founder's spare evenings can sustainably cover.</p>
+
+<h2>Do you actually trust the numbers you're looking at?</h2>
+<p>This is the question that matters most, and it's one owners often only answer honestly when pressed. If you're making decisions — hiring, pricing, taking on a big order — without real confidence in what the current numbers say, that's a bigger risk than the cost of getting proper support. A business can survive slow bookkeeping for a while. It struggles for much longer once decisions are consistently made on numbers nobody quite trusts.</p>
+
+<h2>What level of support do you actually need?</h2>
+<p>"Outsourcing finance" covers a wide range, and it's worth being specific about what you're missing before you buy anything:</p>
+<ul>
+<li><strong>Bookkeeping</strong> — someone recording and reconciling transactions accurately and promptly, so the raw numbers are correct.</li>
+<li><strong>Management accounting</strong> — someone turning those numbers into a monthly report you can actually read and act on.</li>
+<li><strong>Payroll</strong> — someone administering pay, deductions and pensions correctly and on time.</li>
+<li><strong>Higher-level financial oversight</strong> — someone acting closer to a finance director, involved in forecasting, budgeting and strategic decisions, without being a full-time hire.</li>
+</ul>
+<p>Many businesses only need the first one or two to start with, and add the rest as they grow — there's no obligation to buy the whole stack at once.</p>
+
+<h2>What would it cost to do this in-house instead?</h2>
+<p>Weigh the cost of outsourcing against what an equivalent in-house hire would actually cost — not just salary, but employer's National Insurance, pension contributions, recruitment, management time, and the risk of relying on a single person's availability and skill set. For most small businesses, outsourced support delivers a broader range of experience at a lower and more flexible cost than an equivalent in-house hire, at least until the business is large enough to justify a full-time senior role.</p>
+
+<h2>Are you prepared to let go of doing it yourself?</h2>
+<p>This one is more personal than financial. Some founders find it genuinely hard to hand over something they've always controlled directly, even once it's clearly the sensible move. It's worth being honest about whether that reluctance is really about quality of service, or just about letting go — the latter tends to resolve itself quickly once you see what proper reporting actually looks like.</p>
+
+<h2>A simple way to decide</h2>
+<ul>
+<li>If finance is taking hours you should be spending elsewhere, and that number is growing, that's a strong signal.</li>
+<li>If you don't fully trust the numbers you're currently looking at, treat that as urgent, not optional.</li>
+<li>If you're not sure how much support you need, start with the basics — accurate bookkeeping — and build up from there rather than trying to solve everything at once.</li>
+</ul>
+
+<p>This is a general framework, not a recommendation for your specific business — the right level of support depends on where you are and where you're heading. If you'd like to talk through what outsourcing might look like for you, our <a href="/services#virtual">virtual financial controller service</a> is a good place to start the conversation.</p>`,
+  },
+  {
+    slug: 'understanding-directors-loan-accounts-what-every-director-should-know',
+    title: "Understanding Directors' Loan Accounts: What Every Director Should Know",
+    date: '2026-07-01',
+    excerpt:
+      'What a directors’ loan account actually is, why an overdrawn one has real tax consequences, and how to keep it recorded properly.',
+    body: `<p>If you've ever taken money out of your limited company, or put your own money in, outside of salary or dividends, you almost certainly have a directors' loan account, whether or not you've ever thought of it that way. It's one of the most misunderstood corners of running a company, and the mistakes usually surface at the worst possible time — when your accounts are being finalised, or when HMRC comes asking questions.</p>
+
+<h2>What a Directors' Loan Account Actually Is</h2>
+<p>A <strong>directors' loan account</strong> (DLA) is simply a running record of money moving between you, as a director, and your company, outside of salary, dividends, or expenses that have been properly reimbursed. If the company pays out money on your behalf that isn't one of those things, you owe it back — the account is overdrawn. If you put your own money into the company, the company owes you — the account is in credit. Every limited company should be keeping this record, even if no one has ever called it a "loan".</p>
+
+<h2>Why an Overdrawn Account Matters</h2>
+<p>An overdrawn directors' loan account isn't automatically a problem, but it carries real tax consequences that catch a lot of directors off guard:</p>
+<ul>
+<li>If the loan isn't cleared within a set period after the company's year end, the company can face an additional Corporation Tax charge on the outstanding balance. The exact rules and repayment window change from time to time, so check the current position on gov.uk rather than assuming last year's rules still apply.</li>
+<li>If the loan is large enough, and interest charged on it is below HMRC's official rate (or there's no interest at all), it can be treated as a benefit in kind, with tax and National Insurance implications for both you and the company. Again, the thresholds and official rate move periodically — don't rely on a figure from memory.</li>
+<li>Simply repaying the loan and then withdrawing a similar amount again shortly afterwards doesn't necessarily avoid these rules — HMRC has specific anti-avoidance provisions aimed at exactly that pattern.</li>
+</ul>
+
+<h2>Dividends Aren't a Shortcut</h2>
+<p>A common way directors try to clear an overdrawn loan account is by voting themselves a dividend to offset it. That's fine in principle, but only if the company actually has sufficient distributable profits to declare the dividend in the first place, and the paperwork — board minutes and dividend vouchers — is done properly at the time. A dividend declared without the profits to support it, or without the right documentation, can be reclassified, which usually makes the tax position worse, not better.</p>
+
+<h2>Keeping the Account Recorded Properly</h2>
+<p>The directors' loan account should be updated as transactions happen, not reconstructed months later from bank statements and memory. That means:</p>
+<ul>
+<li>Every payment between you and the company being coded correctly as it happens, not lumped into a general "director" category.</li>
+<li>Clear separation between genuine business expenses (which shouldn't touch the loan account at all) and personal withdrawals (which should).</li>
+<li>A running balance you can check at any point, rather than only finding out the position when the annual accounts are prepared.</li>
+</ul>
+<p>This is one of the areas where up-to-date <a href="/services#bookkeeping">bookkeeping</a> genuinely protects you — a loan account that's tracked in real time rarely turns into a year-end surprise, and it gives you the chance to clear a balance well within any relevant deadline rather than discovering the problem after the fact.</p>
+
+<h2>What Good Practice Looks Like</h2>
+<p>Treat the company's bank account as entirely separate from your own, even when you're the only director and shareholder. Keep a note of what every withdrawal is for at the time you make it. And review the loan account balance regularly, not just once a year, so there are no surprises when the accounts are drawn up.</p>
+
+<p>This isn't personalised tax advice — the rules around directors' loans depend on your company's specific circumstances, so talk to an accountant before making decisions based on your own balance. If your directors' loan account needs untangling, or you'd simply like it tracked properly going forward, <a href="/services">get in touch</a>.</p>`,
+  },
+  {
+    slug: 'break-even-analysis-explained-know-the-number-you-need-to-hit',
+    title: 'Break-Even Analysis Explained: Know the Number You Need to Hit',
+    date: '2026-07-15',
+    excerpt:
+      'How to work out the exact sales figure your business needs to hit before it starts making money, and why that number moves more than you think.',
+    body: `<p>Ask most business owners how much they need to sell each month just to cover their costs, and you'll usually get a rough guess rather than a real answer. Break-even analysis turns that guess into an actual number — the point at which income exactly covers costs, with nothing left over and nothing lost. Knowing it changes how you price, how you plan, and how nervous you should be about a quiet month.</p>
+
+<h2>What Break-Even Actually Means</h2>
+<p>Your <strong>break-even point</strong> is the level of sales at which your total revenue equals your total costs. Sell less than that and you're making a loss; sell more and you're into profit. It can be expressed as a sales value (how much revenue you need) or as a number of units or jobs (how many you need to sell), and most businesses find the second version more useful day to day.</p>
+
+<h2>The Three Numbers You Need</h2>
+<p>Break-even analysis only needs three inputs, but they have to be accurate to mean anything:</p>
+<ul>
+<li><strong>Fixed costs.</strong> The costs you pay regardless of how much you sell — rent, salaries, insurance, subscriptions. These don't move with volume, at least not in the short term.</li>
+<li><strong>Variable costs.</strong> The costs that rise and fall directly with what you sell — materials, direct labour on a job, transaction fees. These scale with volume.</li>
+<li><strong>Selling price.</strong> What you actually charge per unit or per job, after any typical discounting — not your list price if you rarely charge it in full.</li>
+</ul>
+<p>From these, you get your <strong>contribution margin</strong> — selling price minus variable cost per unit — which is the amount each sale actually contributes towards covering your fixed costs. Break-even in units is simply your fixed costs divided by that contribution margin.</p>
+
+<h2>Why the Number Moves More Than You'd Expect</h2>
+<p>Break-even isn't a number you calculate once and file away. It shifts every time a cost changes:</p>
+<ul>
+<li>A supplier price rise increases your variable cost and lowers your contribution margin, which pushes your break-even point up.</li>
+<li>Taking on new staff or a bigger premises raises fixed costs, which does the same.</li>
+<li>A price increase, or a cheaper supplier deal, moves it the other way.</li>
+</ul>
+<p>Businesses that only calculate break-even once, at start-up, are often working off a number that's badly out of date within a year. It's worth revisiting whenever a major cost changes, not just annually.</p>
+
+<h2>Using It to Make Actual Decisions</h2>
+<p>Once you know your break-even point, it becomes a genuinely practical tool rather than a theoretical exercise:</p>
+<ul>
+<li><strong>Pricing.</strong> If your break-even sales volume looks unrealistic for your market, that's a signal your price, your costs, or both need to change — before you launch, not after.</li>
+<li><strong>Target-setting.</strong> Knowing the number you need to hit just to cover costs makes it much easier to set a meaningful sales target above it, rather than picking a number that feels ambitious but isn't grounded in anything.</li>
+<li><strong>Judging new ventures.</strong> A new product line or service has its own break-even point. Working it out before committing tells you how realistic it is, rather than finding out a year in.</li>
+<li><strong>Weathering a quiet spell.</strong> Knowing exactly how far sales can drop before you're trading at a loss takes a lot of the guesswork out of a slow month.</li>
+</ul>
+
+<h2>Where It Fits Alongside Your Other Numbers</h2>
+<p>Break-even analysis works best alongside a proper <a href="/services#budgeting">budget</a>, rather than as a one-off exercise — a budget tells you what you're aiming for over the year, and break-even tells you the floor you can't afford to fall below. Together they give you a much clearer sense of how much room you actually have.</p>
+
+<p>This isn't a substitute for a full financial review of your own figures — every business's cost structure is different. If you're not sure what your actual break-even point is, or want help building it into your regular reporting, <a href="/services">get in touch</a> and we'll work through it with you.</p>`,
+  },
+  {
+    slug: 'preparing-your-business-for-its-first-audit-or-due-diligence-review',
+    title: "Preparing Your Business for Its First Audit or Due Diligence Review",
+    date: '2026-07-29',
+    excerpt:
+      'What auditors and buyers actually check first, and the practical steps that get a business’s records into shape before either process begins.',
+    body: `<p>Whether it's a statutory audit triggered by your company crossing a size threshold, or a buyer's due diligence team going through your numbers ahead of a sale, the first review of this kind is usually a shock to businesses that have only ever prepared accounts for their own use. The good news is that most of what reviewers look for is the same regardless of which process you're facing, and almost all of it can be sorted out well in advance.</p>
+
+<h2>What Triggers the Review</h2>
+<p>A statutory audit becomes a requirement once a company exceeds certain size thresholds (turnover, balance sheet total, and employee numbers — check the current figures on gov.uk, as they're reviewed periodically), or where investors, lenders or a parent company require one contractually. Due diligence is different: it's the review a buyer, investor or lender carries out before committing money, and it can happen to a business of any size. Either way, the underlying question is the same — do the numbers tell an accurate, defensible story about the business.</p>
+
+<h2>What Reviewers Actually Look For</h2>
+<p>Auditors and due diligence teams tend to start in the same places:</p>
+<ul>
+<li>Whether income and expenditure are recorded completely and consistently, with a clear trail from bank transaction to ledger entry to report.</li>
+<li>Whether balances on the balance sheet — debtors, creditors, stock, loans — are genuine, supportable, and not just carried forward unchanged from a previous period without review.</li>
+<li>Whether related-party transactions, including directors' loans and any payments to connected businesses, are properly recorded and disclosed.</li>
+<li>Whether the numbers in your management reporting actually reconcile to your statutory accounts and your bookkeeping records — inconsistency between the three is one of the fastest ways to lose a reviewer's confidence.</li>
+</ul>
+
+<h2>Getting Your Bookkeeping Audit-Ready</h2>
+<p>Almost every issue that slows down an audit or due diligence process traces back to the same root cause: bookkeeping that wasn't kept current or accurate throughout the year. Practical steps that make a real difference include:</p>
+<ul>
+<li>Reconciling bank accounts every month, not just at year end, so discrepancies are caught while they're still explainable.</li>
+<li>Keeping supporting documentation — invoices, contracts, agreements — filed against the transactions they relate to, rather than scattered across email and paper.</li>
+<li>Clearing or properly documenting any directors' loan account balances, rather than leaving them as an unexplained figure.</li>
+<li>Making sure payroll, VAT and other statutory filings are all up to date and consistent with what's in the accounting records.</li>
+</ul>
+<p>This is exactly the kind of groundwork ongoing <a href="/services#bookkeeping">bookkeeping</a> and <a href="/services#management">management accounting</a> are built to support — a business with clean, current monthly numbers walks into an audit or due diligence process in a completely different position from one reconstructing a year's records from scratch.</p>
+
+<h2>Where We Can Help — and Where We Can't</h2>
+<p>It's worth being clear about what we do and don't do. We are not a registered audit firm, and we don't carry out statutory audits ourselves — that requires separate regulatory registration held by specific audit practices. What we can do is help you get your bookkeeping and management accounts into a state that stands up to scrutiny well before an auditor or a buyer's advisers ever look at them, so the actual review goes smoothly rather than turning into a prolonged back-and-forth over missing information.</p>
+
+<h2>Starting Early Makes the Difference</h2>
+<p>The businesses that get through their first audit or due diligence review with the least stress are almost always the ones that started tidying up months in advance, not the week the request landed. Clean records take time to build; they can't be manufactured at short notice.</p>
+
+<p>This is general guidance, not advice on your specific audit or transaction — every review is different, so involve the right specialist advisers alongside us. If you'd like help getting your bookkeeping and management accounts in good shape before a review begins, <a href="/services">get in touch</a>.</p>`,
+  },
+  {
+    slug: 'bookkeeping-for-seasonal-businesses-planning-around-peaks-and-troughs',
+    title: 'Bookkeeping for Seasonal Businesses: Planning Around Peaks and Troughs',
+    date: '2026-08-12',
+    excerpt:
+      'Why seasonal trading patterns make ordinary bookkeeping and cash flow habits misleading, and what to do differently instead.',
+    body: `<p>If your business does most of its trade in a handful of months and goes quiet the rest of the year, the standard advice about bookkeeping and cash flow doesn't quite fit. Looking at a single month in isolation, or comparing it to the one before, tells you very little when your entire year hinges on a short peak season. Seasonal businesses need to plan differently, not just work harder during the busy months.</p>
+
+<h2>Why a Single Month Is Misleading</h2>
+<p>For a seasonal business, month-on-month comparisons are close to meaningless. A quiet October compared to a booming August looks like a crisis, when it's actually just the shape of the business. What matters instead is comparing this year's peak to last year's peak, this year's quiet spell to last year's quiet spell, and tracking the pattern across a full trading cycle rather than a single month. Bookkeeping and reporting set up for a steady, even business will keep flagging false alarms if it isn't adjusted for this.</p>
+
+<h2>Smoothing Cash Across the Year</h2>
+<p>The biggest risk for a seasonal business isn't usually profitability — it's cash timing. Money earned in a short peak has to stretch across months where very little is coming in, and outgoings like rent, insurance and staff costs (where retained) often don't pause just because trade has. A few habits make this manageable:</p>
+<ul>
+<li>Build a cash reserve during the peak deliberately, rather than treating a strong month's bank balance as spare money to reinvest immediately.</li>
+<li>Time large purchases and one-off costs to land during or just after the peak, when cash is available, rather than during the quiet months when it isn't.</li>
+<li>Agree payment terms with suppliers and lenders that reflect your actual trading pattern, rather than a standard monthly schedule that assumes even income.</li>
+<li>Keep a rolling <a href="/services#cash">cash flow forecast</a> that spans the full cycle, not just the next few weeks, so a quiet stretch that's entirely normal doesn't get mistaken for a genuine problem.</li>
+</ul>
+
+<h2>Budgeting Around the Shape of the Year</h2>
+<p>A generic monthly budget, split evenly across twelve months, is close to useless for a seasonal business. Budgets work far better when they're built month by month around your actual trading pattern — a realistic peak, a realistic trough, and the specific costs that fall in each. That way, a quiet month coming in on budget is a sign everything's on track, not a false alarm that sends you chasing a problem that doesn't exist.</p>
+
+<h2>Keeping Bookkeeping Current in the Off-Season</h2>
+<p>It's tempting to let bookkeeping slide during the quiet months, since there's less happening day to day, but this is exactly when it's worth using the lull well. Quiet periods are a good time to reconcile any backlog from the peak, tidy up categorisation, review supplier and customer terms, and make sure the books are genuinely current going into the next cycle — rather than starting the next peak season already behind. Consistent <a href="/services#bookkeeping">bookkeeping</a> year-round, even when trade is light, is what makes the numbers reliable enough to plan around.</p>
+
+<h2>Reviewing the Pattern Itself</h2>
+<p>Over time, it's worth stepping back and asking whether the seasonal pattern itself is changing — a peak season starting earlier or later, a quiet period shortening, a new revenue stream that doesn't follow the same cycle. Seasonal doesn't have to mean static, and reviewing the pattern each year keeps your budgeting and forecasting grounded in how the business actually trades now, not how it traded when the pattern was first set.</p>
+
+<p>This is general guidance rather than a plan built around your specific trading cycle — every seasonal business is shaped differently. If your bookkeeping or cash flow planning needs adjusting to fit how your business actually trades through the year, <a href="/services">get in touch</a>.</p>`,
+  },
 ];
 
 export function getPost(slug: string) {
