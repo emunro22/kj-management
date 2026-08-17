@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { services } from '@/data/services';
+import { areas } from '@/data/areas';
 import { site } from '@/data/site';
 
 const allLinks = [
@@ -17,12 +18,14 @@ const support = [
   { label: 'Contact Us', href: '/contact' },
 ];
 
+const featuredAreas = areas.slice(0, 8);
+
 export default function Footer() {
   return (
     <footer className="bg-white pt-20">
       <div className="container-kj">
-        <div className="grid gap-10 border-neutral-200 md:grid-cols-3 md:divide-x md:divide-neutral-200">
-          <FooterColumn title="Services" className="md:pr-10">
+        <div className="grid gap-10 border-neutral-200 md:grid-cols-2 md:divide-x md:divide-neutral-200 lg:grid-cols-4">
+          <FooterColumn title="Services" className="lg:pr-10">
             {services.map((service) => (
               <FooterLink key={service.slug} href={`/services#${service.slug}`}>
                 {service.title}
@@ -30,15 +33,25 @@ export default function Footer() {
             ))}
           </FooterColumn>
 
-          <FooterColumn title="All Links" className="md:px-10">
+          <FooterColumn title="Areas We Cover" className="lg:px-10">
+            {featuredAreas.map((area) => (
+              <FooterLink key={area.slug} href={`/areas/${area.slug}`}>
+                Finance Help in {area.name}
+              </FooterLink>
+            ))}
+            <FooterLink href="/areas">All Areas</FooterLink>
+          </FooterColumn>
+
+          <FooterColumn title="All Links" className="lg:px-10">
             {allLinks.map((link) => (
               <FooterLink key={link.label} href={link.href}>
                 {link.label}
               </FooterLink>
             ))}
+            <FooterLink href="/knowledge-hub">Knowledge Hub</FooterLink>
           </FooterColumn>
 
-          <FooterColumn title="Support" className="md:pl-10">
+          <FooterColumn title="Support" className="lg:pl-10">
             {support.map((link) => (
               <FooterLink key={link.label} href={link.href}>
                 {link.label}

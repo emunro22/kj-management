@@ -1,6 +1,20 @@
 export type Service = {
   /** Matches the anchor used on the live site, e.g. /services#management */
   slug: string;
+  /** Keyword-rich slug used in area pages, e.g. /areas/uddingston/management-accounting */
+  keywordSlug: string;
+  /** Short phrase for area-page copy, e.g. "management accounting support" */
+  keyword: string;
+  /**
+   * Common alternate phrasings real searchers use for this service
+   * (e.g. "finance controller" for Virtual Financial Controller). Used to:
+   *  - broaden on-page keyword coverage on the canonical area/service page
+   *  - generate /areas/[area]/[alias] redirects into the canonical page
+   * Deliberately NOT separate indexed pages — near-duplicate content across
+   * synonyms is a doorway-page risk, so we consolidate ranking signal onto
+   * one strong page per area/service instead of splitting it.
+   */
+  aliases: { label: string; slug: string }[];
   title: string;
   /** Lucide fallback, used until the real SVG is downloaded. */
   icon: string;
@@ -16,6 +30,13 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: 'management',
+    keywordSlug: 'management-accounting',
+    keyword: 'management accounting',
+    aliases: [
+      { label: 'management accountant', slug: 'management-accountant' },
+      { label: 'monthly management accounts', slug: 'monthly-management-accounts' },
+      { label: 'outsourced management accounts', slug: 'outsourced-management-accounts' },
+    ],
     title: 'Management Accounting',
     icon: 'FileSpreadsheet',
     iconSrc: '/images/icons/Management-Accounting.svg',
@@ -48,6 +69,13 @@ export const services: Service[] = [
   },
   {
     slug: 'annual',
+    keywordSlug: 'annual-accounts',
+    keyword: 'annual accounts',
+    aliases: [
+      { label: 'year end accounts', slug: 'year-end-accounts' },
+      { label: 'statutory accounts', slug: 'statutory-accounts' },
+      { label: 'company accounts', slug: 'company-accounts' },
+    ],
     title: 'Annual Accounts',
     icon: 'FileCheck2',
     iconSrc: '/images/icons/Annual-Accounts.svg',
@@ -80,6 +108,13 @@ export const services: Service[] = [
   },
   {
     slug: 'cash',
+    keywordSlug: 'cash-flow-planning',
+    keyword: 'cash flow planning',
+    aliases: [
+      { label: 'cash flow management', slug: 'cash-flow-management' },
+      { label: 'cash flow forecasting', slug: 'cash-flow-forecasting' },
+      { label: 'cashflow help', slug: 'cashflow-help' },
+    ],
     title: 'Cash Flow Planning',
     icon: 'Coins',
     iconSrc: '/images/icons/Cash-Flow-Planning.svg',
@@ -112,6 +147,13 @@ export const services: Service[] = [
   },
   {
     slug: 'budgeting',
+    keywordSlug: 'budgeting-forecasting',
+    keyword: 'budgeting & forecasting',
+    aliases: [
+      { label: 'business budgeting', slug: 'business-budgeting' },
+      { label: 'financial forecasting', slug: 'financial-forecasting' },
+      { label: 'budget planning', slug: 'budget-planning' },
+    ],
     title: 'Budgeting & Forecasting',
     icon: 'PencilRuler',
     iconSrc: '/images/icons/Budgeting-Forecasting.svg',
@@ -144,6 +186,13 @@ export const services: Service[] = [
   },
   {
     slug: 'financial',
+    keywordSlug: 'financial-modelling',
+    keyword: 'financial modelling',
+    aliases: [
+      { label: 'financial projections', slug: 'financial-projections' },
+      { label: 'investor ready financial model', slug: 'investor-ready-financial-model' },
+      { label: 'business valuation', slug: 'business-valuation' },
+    ],
     title: 'Financial Modelling for Investment',
     icon: 'Search',
     iconSrc: '/images/icons/Financial-Modelling-for-Investment.svg',
@@ -176,6 +225,13 @@ export const services: Service[] = [
   },
   {
     slug: 'bookkeeping',
+    keywordSlug: 'bookkeeping',
+    keyword: 'bookkeeping',
+    aliases: [
+      { label: 'bookkeeper', slug: 'bookkeeper' },
+      { label: 'outsourced bookkeeping', slug: 'outsourced-bookkeeping' },
+      { label: 'Xero bookkeeper', slug: 'xero-bookkeeper' },
+    ],
     title: 'Bookkeeping',
     icon: 'BookCheck',
     iconSrc: '/images/icons/Bookkeeping.svg',
@@ -208,6 +264,14 @@ export const services: Service[] = [
   },
   {
     slug: 'virtual',
+    keywordSlug: 'virtual-financial-controller',
+    keyword: 'virtual financial controller',
+    aliases: [
+      { label: 'finance controller', slug: 'finance-controller' },
+      { label: 'financial controller', slug: 'financial-controller' },
+      { label: 'outsourced finance director', slug: 'outsourced-finance-director' },
+      { label: 'part-time finance director', slug: 'part-time-finance-director' },
+    ],
     title: 'Virtual Financial Controller',
     icon: 'FolderOpen',
     iconSrc: '/images/icons/Virtual-Financial-Controller.svg',
@@ -238,3 +302,7 @@ export const services: Service[] = [
     ],
   },
 ];
+
+export function getServiceByKeywordSlug(keywordSlug: string) {
+  return services.find((service) => service.keywordSlug === keywordSlug);
+}

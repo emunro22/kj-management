@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     'virtual financial controller',
     'Xero accountant',
     'ACCA accountant UK',
+    'accountant Uddingston',
+    'finance help Uddingston',
+    'bookkeeper Glasgow',
+    'management accountant South Lanarkshire',
+    'small business accountant Glasgow',
   ],
   openGraph: {
     type: 'website',
@@ -64,7 +69,12 @@ const schema = {
   email: site.email,
   telephone: site.phone,
   description: site.description,
-  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  areaServed: [
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'AdministrativeArea', name: 'South Lanarkshire' },
+    { '@type': 'AdministrativeArea', name: 'North Lanarkshire' },
+    { '@type': 'City', name: 'Glasgow' },
+  ],
   priceRange: '££',
   sameAs: [site.socials.tiktok, site.socials.instagram],
   aggregateRating: {
