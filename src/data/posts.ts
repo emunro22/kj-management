@@ -459,14 +459,14 @@ export const posts: Post[] = [
     title: 'How to Choose an Accountant Near You: Local vs Remote Explained',
     date: '2025-10-15',
     excerpt:
-      'How to weigh a local, in-person accountant against a remote, Xero-based one, what that remote relationship actually looks like day to day, and when in-person still matters.',
+      'How to weigh a local, in-person accountant against a remote, cloud-based one, what that remote relationship actually looks like day to day, and when in-person still matters.',
     body: `<p>Search "accountant near me" and you'll get a map full of pins, but proximity on a map tells you very little about whether that firm will actually understand your business or answer the phone when you need them. The rise of cloud accounting software has genuinely changed what "near you" needs to mean, and it's worth understanding the real trade-offs before you choose based on postcode alone.</p>
 
 <h2>What "local" used to guarantee</h2>
 <p>Before cloud accounting, being local mattered because your accountant physically held your paperwork — box files of receipts, a ledger on their desk, bank statements posted back and forth. Proximity was practical, not just personal. That world has largely gone. Most small business accounting now runs through cloud software like Xero, which means your accountant can see the same live, up-to-date numbers whether they're two miles away or two hundred. The paperwork reason for staying local has mostly disappeared, even though the instinct to want someone "nearby" often remains.</p>
 
-<h2>What a remote, Xero-based relationship looks like day to day</h2>
-<p>A good remote accounting relationship doesn't feel distant once it's set up properly. You and your accountant both work from the same live Xero file, so there's no waiting for someone to "send over the latest figures" — the figures are simply there, reconciled and current. Communication happens by phone, video call and email, usually on a regular rhythm — monthly management accounts, a quarterly review call — rather than only when something's wrong. Questions get answered the same day, documents get shared instantly, and because everything sits in one system, nothing depends on a physical meeting actually taking place. For many owners this ends up being more responsive than a traditional local relationship built around occasional office visits.</p>
+<h2>What a remote, cloud-based relationship looks like day to day</h2>
+<p>A good remote accounting relationship doesn't feel distant once it's set up properly. You and your accountant both work from the same live cloud accounting file, so there's no waiting for someone to "send over the latest figures" — the figures are simply there, reconciled and current. Communication happens by phone, video call and email, usually on a regular rhythm — monthly management accounts, a quarterly review call — rather than only when something's wrong. Questions get answered the same day, documents get shared instantly, and because everything sits in one system, nothing depends on a physical meeting actually taking place. For many owners this ends up being more responsive than a traditional local relationship built around occasional office visits.</p>
 
 <h2>When in-person still matters</h2>
 <p>That said, remote isn't automatically better for everyone. Some owners think more clearly face to face, particularly around bigger decisions — a major investment, a restructure, bringing in a business partner — where reading the room matters as much as reading the numbers. Some simply prefer to hand over a literal folder of paperwork rather than log into a spreadsheet or app. And if your business already has a strong local network — your bank manager, your solicitor, other business owners — a local accountant can be a natural extension of that. None of this makes local "better" in general; it makes it better for a particular kind of owner and a particular kind of relationship.</p>
@@ -479,7 +479,7 @@ export const posts: Post[] = [
 <li>Weigh specialism and fit against geography. The right accountant for your sector or business size, even if remote, usually beats the nearest generalist.</li>
 </ul>
 
-<p>We're based in Uddingston, Scotland, and we work both ways: with clients locally, in person, and with clients right across the UK entirely remotely through Xero. Neither is a lesser version of the other — it's simply a question of what suits you and your business. You can see <a href="/areas">the areas we cover</a> in person, or get in touch if you'd rather work with us remotely wherever you're based.</p>`,
+<p>We're based in Uddingston, Scotland, and we work both ways: with clients locally, in person, and with clients right across the UK and internationally through cloud accounting systems, video calls and direct contact with business owners and their teams. Neither is a lesser version of the other — it's simply a question of what suits you and your business. You can see <a href="/areas">the areas we cover</a> in person, or get in touch if you'd rather work with us remotely wherever you're based.</p>`,
   },
   {
     slug: 'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
@@ -676,7 +676,7 @@ export const posts: Post[] = [
 <p>Cloud accounting software like Xero means your books can be kept up to date and your accountant can support you from anywhere, which is genuinely useful for the flexibility it gives you. But there is still real value in being able to sit down face to face when you want to talk through a decision properly, or simply in working with someone who understands the local business landscape rather than treating you as one client among thousands nationally. A local firm with a genuinely remote-capable setup gives you both — convenience when you want it, and a real person nearby when that matters more.</p>
 
 <h2>KJ Management Accounting Solutions — based in Uddingston</h2>
-<p>KJ Management Accounting Solutions is founded and based in Uddingston, a town best known locally for being home to Tunnock's, and sitting within easy reach of Bothwell, Hamilton, Motherwell, Bellshill, and the rest of South Lanarkshire. We work with clients in person locally and fully remotely across the UK via Xero, so whether you would rather meet over a coffee or handle everything by video call and email, the same level of service is available either way.</p>
+<p>KJ Management Accounting Solutions is founded and based in Uddingston, a town best known locally for being home to Tunnock's, and sitting within easy reach of Bothwell, Hamilton, Motherwell, Bellshill, and the rest of South Lanarkshire. We work with clients in person locally and fully remotely across the UK through cloud accounting systems, video calls and direct contact with business owners and their teams, so whether you would rather meet over a coffee or handle everything remotely, the same level of service is available either way.</p>
 
 <h2>What South Lanarkshire businesses typically need help with</h2>
 <ul>
@@ -690,7 +690,7 @@ export const posts: Post[] = [
 
 <h2>Getting started locally</h2>
 <p>If you are based in or around Uddingston, Bothwell, or elsewhere in South Lanarkshire, the easiest starting point is usually a conversation about where your finances currently stand and where the gaps are — whether that is messy bookkeeping, no visibility on cash flow, or accounts that only get looked at once a year. From there we can recommend what actually makes sense for your stage of business, rather than a generic package.</p>
-<p>We have built out dedicated pages for towns across South Lanarkshire, North Lanarkshire, and Greater Glasgow — see <a href="/areas">the full list of areas we cover</a>, or go directly to <a href="/areas/uddingston">finance help in Uddingston</a> for more on how we support businesses on our doorstep.</p>
+<p>We have built out dedicated pages for towns across South Lanarkshire, North Lanarkshire, and Greater Glasgow — see <a href="/areas">the full list of areas we cover</a>, or go directly to <a href="/areas/uddingston">accountancy and finance support in Uddingston</a> for more on how we support businesses on our doorstep.</p>
 
 <p>This article is general information rather than advice tailored to your business — get in touch and we can talk through your specific situation, in person in Uddingston or over a call, whichever suits you better.</p>`,
   },
@@ -716,7 +716,7 @@ export const posts: Post[] = [
 
 <h2>Matching support to where your business actually is</h2>
 <p>The mistake we see most often is not choosing the wrong service outright, but staying on the wrong stage for too long — a business still doing its own basic bookkeeping when it desperately needs monthly management accounts to make sense of a growing team and rising costs, or a business paying for full financial controller support it does not yet need. The right approach is to be honest about where you actually are and move up a stage when the business genuinely needs it, not before and not after.</p>
-<p>We work with businesses across Glasgow — city centre, West End, South Side, and beyond — both in person and fully remotely via Xero. See <a href="/areas/glasgow">finance help in Glasgow</a> for more on how we support businesses here specifically.</p>
+<p>We work with businesses across Glasgow — city centre, West End, South Side, and beyond — both in person and fully remotely through cloud accounting and video calls. See <a href="/areas/glasgow">accountancy and finance support in Glasgow</a> for more on how we support businesses here specifically.</p>
 
 <p>This is general guidance rather than advice tailored to your business — if you are not sure which stage you are at, we are happy to talk it through with no obligation.</p>`,
   },

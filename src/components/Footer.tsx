@@ -36,7 +36,7 @@ export default function Footer() {
           <FooterColumn title="Areas We Cover" className="lg:px-10">
             {featuredAreas.map((area) => (
               <FooterLink key={area.slug} href={`/areas/${area.slug}`}>
-                Finance Help in {area.name}
+                {area.name}
               </FooterLink>
             ))}
             <FooterLink href="/areas">All Areas</FooterLink>

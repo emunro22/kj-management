@@ -7,13 +7,12 @@ import Reveal from '@/components/Reveal';
 import CtaBand from '@/components/CtaBand';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { areas } from '@/data/areas';
-import { site } from '@/data/site';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Areas We Cover',
   description:
-    'Finance help, bookkeeping and management accounting for small businesses across Uddingston, South & North Lanarkshire and Greater Glasgow.',
+    'Accountancy and finance support for small businesses across Uddingston, Glasgow, South & North Lanarkshire, and the wider UK.',
   alternates: { canonical: '/areas' },
 };
 
@@ -32,8 +31,8 @@ export default function AreasIndexPage() {
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Areas We Cover', href: '/areas' }]} />
 
       <PageHero
-        title="Finance Help Across Uddingston & Greater Glasgow"
-        intro="KJ Management Accounting Solutions is based in Uddingston and works with small business owners throughout South Lanarkshire, North Lanarkshire and Greater Glasgow — in person where it helps, and remotely via Xero for everything else."
+        title="Accountancy and Finance Support in Glasgow and Across the UK"
+        intro="KJ Management Accounting Solutions is based in Uddingston, supporting businesses across Glasgow, South Lanarkshire and North Lanarkshire. We work flexibly around each client, combining face-to-face meetings where helpful with regular video calls and cloud-based systems. Our work isn't limited to Scotland—we also support businesses across the UK, including fractional Financial Controller and Finance Director work for clients in London, as well as businesses internationally."
       />
 
       {regions.map((region) => (
@@ -55,7 +54,7 @@ export default function AreasIndexPage() {
                           {area.postcode}
                         </span>
                         <h2 className="mt-2 text-xl text-ink group-hover:text-brand">
-                          Finance Help in {area.name}
+                          Accountancy &amp; Finance Support in {area.name}
                         </h2>
                         <p className="mt-2 flex-1 text-[15px] leading-[1.7] text-ink-muted">
                           {area.tagline}
@@ -79,10 +78,12 @@ export default function AreasIndexPage() {
             <p className="eyebrow mb-3">Don&rsquo;t see your area?</p>
             <h2 className="section-title text-ink">We Work Across the UK &amp; Internationally</h2>
             <p className="mt-6 text-[17px] leading-[1.8] text-ink-soft">
-              Every service on {site.shortName} runs on Xero and video calls, so distance from{' '}
-              {areas.find((a) => a.isFlagship)?.name ?? 'Uddingston'} is rarely the deciding factor.
-              If your business is outside the areas listed here, get in touch — we still want to hear
-              from you.
+              While we&rsquo;re proud to be based in Uddingston, location doesn&rsquo;t restrict how
+              we work. Through cloud accounting systems, regular video calls and direct communication
+              with business owners and their teams, we provide hands-on support to clients across the
+              UK and internationally. We can also meet clients face to face when useful and practical.
+              If your area isn&rsquo;t listed above, please still get in touch to discuss how we can
+              support your business.
             </p>
           </Reveal>
         </div>

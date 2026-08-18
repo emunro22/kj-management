@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'Xero accountant',
     'ACCA accountant UK',
     'accountant Uddingston',
-    'finance help Uddingston',
+    'accountancy and finance support Uddingston',
     'bookkeeper Glasgow',
     'management accountant South Lanarkshire',
     'small business accountant Glasgow',

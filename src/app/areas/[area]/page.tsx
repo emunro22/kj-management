@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!area) return {};
 
   return {
-    title: `Finance Help in ${area.name}`,
-    description: `Management accounting, bookkeeping and finance help for small businesses in ${area.name}, ${area.region}. ${area.tagline}.`,
+    title: `Accountancy & Finance Support in ${area.name}`,
+    description: `Management accounting, bookkeeping and finance support for small businesses in ${area.name}, ${area.region}. ${area.tagline}.`,
     alternates: { canonical: `/areas/${area.slug}` },
   };
 }
@@ -66,7 +66,7 @@ export default async function AreaPage({ params }: Params) {
       <Breadcrumbs items={breadcrumbs} />
 
       <PageHero
-        title={`Finance Help in ${area.name}`}
+        title={`Accountancy & Finance Support in ${area.name}`}
         intro={`${area.tagline[0].toUpperCase()}${area.tagline.slice(1)}. ${area.summary}`}
       />
 
@@ -116,7 +116,7 @@ export default async function AreaPage({ params }: Params) {
             {area.landmarks.length ? (
               <p className="mt-6 flex items-start gap-2 text-[15px] leading-[1.7] text-ink-muted">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" />
-                <span>Local landmarks: {area.landmarks.join(', ')}.</span>
+                <span>Where we work locally: {area.landmarks.join(', ')}.</span>
               </p>
             ) : null}
           </Reveal>

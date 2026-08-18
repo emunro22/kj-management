@@ -12,14 +12,14 @@ export default function AreasWeCover() {
       <div className="container-kj">
         <SectionHeading
           eyebrow="Areas We Cover"
-          title="Finance Help Across Uddingston & Greater Glasgow"
+          title="Accountancy and Finance Support in Glasgow and Across the UK"
         />
 
         <Reveal className="mx-auto mt-6 max-w-2xl text-center">
           <p className="text-[17px] leading-[1.8] text-ink-soft">
             Based in Uddingston, working with small business owners across South Lanarkshire,
-            North Lanarkshire and Greater Glasgow — in person locally, and remotely via Xero
-            everywhere else.
+            North Lanarkshire and Greater Glasgow — in person locally, and through cloud-based
+            systems and video calls everywhere else.
           </p>
         </Reveal>
 
