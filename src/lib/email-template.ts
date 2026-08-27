@@ -8,8 +8,16 @@ export const escapeHtml = (value: string) =>
  * (Arial, brand orange, dark ink) so the inbox experience matches the website.
  * Table-based layout with inline styles for email client compatibility.
  */
+/**
+ * Email clients fetch images from a public URL — they can't reach files bundled
+ * with the app. This stays pointed at the stable Vercel alias (rather than
+ * `site.url`) so the logo keeps resolving even before the production domain's
+ * DNS is cut over to this deployment.
+ */
+const EMAIL_ASSET_BASE_URL = 'https://kj-management.vercel.app';
+
 export function emailShell({ preheader, body }: { preheader: string; body: string }) {
-  const logoUrl = `${site.url}/images/logo-header.png`;
+  const logoUrl = `${EMAIL_ASSET_BASE_URL}/images/logo-header.png`;
 
   return `<!doctype html>
 <html lang="en-GB">
