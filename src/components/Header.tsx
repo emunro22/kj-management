@@ -60,16 +60,25 @@ export default function Header() {
           </SocialLink>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-[2px] text-ink lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <SocialLink href={site.socials.tiktok} label="TikTok" compact>
+            <TikTokIcon />
+          </SocialLink>
+          <SocialLink href={site.socials.instagram} label="Instagram" compact>
+            <Instagram size={18} />
+          </SocialLink>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[2px] text-ink"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -94,14 +103,6 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-              <li className="flex gap-2 pt-5">
-                <SocialLink href={site.socials.tiktok} label="TikTok">
-                  <TikTokIcon />
-                </SocialLink>
-                <SocialLink href={site.socials.instagram} label="Instagram">
-                  <Instagram size={20} />
-                </SocialLink>
-              </li>
             </ul>
           </motion.div>
         ) : null}
@@ -114,10 +115,12 @@ function SocialLink({
   href,
   label,
   children,
+  compact = false,
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
+  compact?: boolean;
 }) {
   return (
     <a
@@ -125,7 +128,9 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] bg-brand text-white transition-colors hover:bg-brand-600"
+      className={`inline-flex items-center justify-center rounded-[2px] bg-brand text-white transition-colors hover:bg-brand-600 ${
+        compact ? 'h-9 w-9' : 'h-10 w-10'
+      }`}
     >
       {children}
     </a>

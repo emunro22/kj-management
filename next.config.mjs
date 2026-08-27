@@ -14,6 +14,8 @@ const serviceAliasRedirects = [
   ['year-end-accounts', 'annual-accounts'],
   ['statutory-accounts', 'annual-accounts'],
   ['company-accounts', 'annual-accounts'],
+  ['how-do-i-submit-my-taxes', 'annual-accounts'],
+  ['tax-return-help', 'annual-accounts'],
   ['cash-flow-management', 'cash-flow-planning'],
   ['cash-flow-forecasting', 'cash-flow-planning'],
   ['cashflow-help', 'cash-flow-planning'],

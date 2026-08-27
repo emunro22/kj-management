@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { site } from '@/data/site';
+import { emailShell, escapeHtml, fieldRow } from '@/lib/email-template';
 
 export const runtime = 'nodejs';
 
@@ -60,31 +61,56 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const escape = (value: string) =>
-    value.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c] as string);
+  const fromAddress = process.env.CONTACT_FROM_EMAIL ?? `Website <onboarding@resend.dev>`;
+  const firstName = fullName.split(' ')[0];
+
+  const notificationHtml = emailShell({
+    preheader: `New website enquiry from ${fullName}`,
+    body: `
+      <h1 style="margin:0 0 20px;font-size:20px;color:#EE7C3B;">New website enquiry</h1>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
+        ${fieldRow('Name', escapeHtml(fullName))}
+        ${fieldRow('Email', `<a href="mailto:${email}" style="color:#EE7C3B;text-decoration:none;">${escapeHtml(email)}</a>`)}
+        ${phone ? fieldRow('Phone', escapeHtml(phone)) : ''}
+        ${subject ? fieldRow('Subject', escapeHtml(subject)) : ''}
+      </table>
+      <p style="margin:0 0 8px;font-size:13px;font-weight:bold;color:#5A5A5A;text-transform:uppercase;letter-spacing:0.04em;">Message</p>
+      <p style="white-space:pre-wrap;margin:0;background:#F5F5F5;padding:16px;border-left:3px solid #EE7C3B;font-size:15px;line-height:1.7;">${escapeHtml(message)}</p>
+    `,
+  });
+
+  const autoReplyHtml = emailShell({
+    preheader: `Thanks for getting in touch with ${site.name} — we'll reply within one working day.`,
+    body: `
+      <h1 style="margin:0 0 20px;font-size:20px;color:#EE7C3B;">Thanks for your message</h1>
+      <p style="margin:0 0 16px;">Hi ${escapeHtml(firstName)},</p>
+      <p style="margin:0 0 16px;">Thanks for getting in touch with ${escapeHtml(site.name)}. We've received your message and one of us will get back to you within one working day.</p>
+      <p style="margin:0 0 24px;">If anything's urgent in the meantime, you can reach us directly on <a href="tel:${site.phone}" style="color:#EE7C3B;text-decoration:none;font-weight:bold;">${escapeHtml(site.phoneDisplay)}</a> or just reply to this email.</p>
+      <p style="margin:0;">Speak soon,<br>${escapeHtml(site.founders)}<br><span style="color:#5A5A5A;">${escapeHtml(site.name)}</span></p>
+    `,
+  });
 
   try {
     const { error } = await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL ?? `Website <onboarding@resend.dev>`,
+      from: fromAddress,
       to: [process.env.CONTACT_TO_EMAIL ?? site.email],
       replyTo: email,
       subject: subject ? `Website enquiry: ${subject}` : `New enquiry from ${fullName}`,
-      html: `
-        <div style="font-family:Arial,sans-serif;font-size:15px;color:#111">
-          <h2 style="color:#EE7C3B;margin:0 0 16px">New website enquiry</h2>
-          <p><strong>Name:</strong> ${escape(fullName)}</p>
-          <p><strong>Email:</strong> ${escape(email)}</p>
-          ${phone ? `<p><strong>Phone:</strong> ${escape(phone)}</p>` : ''}
-          ${subject ? `<p><strong>Subject:</strong> ${escape(subject)}</p>` : ''}
-          <p><strong>Message:</strong></p>
-          <p style="white-space:pre-wrap;background:#f6f6f6;padding:14px;border-left:3px solid #EE7C3B">${escape(
-            message,
-          )}</p>
-        </div>
-      `,
+      html: notificationHtml,
     });
 
     if (error) throw new Error(error.message);
+
+    // Auto-reply to the customer — best-effort, doesn't fail the request if it errors.
+    resend.emails
+      .send({
+        from: fromAddress,
+        to: [email],
+        replyTo: process.env.CONTACT_TO_EMAIL ?? site.email,
+        subject: `Thanks for getting in touch, ${firstName}`,
+        html: autoReplyHtml,
+      })
+      .catch((err) => console.error('[contact] auto-reply failed:', err));
 
     return NextResponse.json({ ok: true });
   } catch (error) {

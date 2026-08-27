@@ -75,6 +75,8 @@ export const services: Service[] = [
       { label: 'year end accounts', slug: 'year-end-accounts' },
       { label: 'statutory accounts', slug: 'statutory-accounts' },
       { label: 'company accounts', slug: 'company-accounts' },
+      { label: 'how do I submit my taxes', slug: 'how-do-i-submit-my-taxes' },
+      { label: 'tax return help', slug: 'tax-return-help' },
     ],
     title: 'Annual Accounts',
     icon: 'FileCheck2',

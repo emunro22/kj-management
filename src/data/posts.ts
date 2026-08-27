@@ -1033,6 +1033,55 @@ export const posts: Post[] = [
 
 <p>This is general guidance rather than a plan built around your specific trading cycle — every seasonal business is shaped differently. If your bookkeeping or cash flow planning needs adjusting to fit how your business actually trades through the year, <a href="/services">get in touch</a>.</p>`,
   },
+  {
+    slug: 'how-do-i-submit-my-taxes-a-small-business-owners-guide',
+    title: 'How Do I Submit My Taxes? A Small Business Owner’s Guide',
+    date: '2026-08-27',
+    excerpt:
+      'A plain-English walkthrough of what "submitting your taxes" actually involves as a sole trader or limited company, and where owners most often get stuck.',
+    body: `<p>"How do I submit my taxes?" is a simple question with an answer that depends entirely on how your business is structured. Sole traders and limited companies file completely different returns, to different deadlines, through different systems — and mixing the two up is one of the most common sources of confusion we hear from business owners.</p>
+
+<h2>If You're a Sole Trader</h2>
+<p>As a sole trader, "submitting your taxes" means filing a Self Assessment tax return with HMRC each year, reporting your business income and allowable expenses so HMRC can calculate the Income Tax and National Insurance you owe. In practice that means:</p>
+<ul>
+<li>Registering for Self Assessment with HMRC if you haven't already (there's a deadline for doing this the first year you start trading).</li>
+<li>Keeping records of income and expenses throughout the year — the return is only as accurate as the bookkeeping behind it.</li>
+<li>Filing the return online through your HMRC account (or through an accountant filing on your behalf) by the annual deadline.</li>
+<li>Paying any tax owed by the same deadline, and the following payment on account if HMRC requires one.</li>
+</ul>
+<p>Exact deadlines and thresholds are reviewed periodically, so always check the current dates on gov.uk rather than relying on last year's.</p>
+
+<h2>If You Run a Limited Company</h2>
+<p>A limited company has two separate submissions to make, to two separate regulators, and neither one covers the other:</p>
+<ul>
+<li><strong>Companies House</strong> — your annual accounts and confirmation statement, covering the company's public record.</li>
+<li><strong>HMRC</strong> — a Corporation Tax return (CT600), reporting the company's profit and the tax due on it, along with payment of any Corporation Tax owed.</li>
+</ul>
+<p>If you also draw a salary or dividends from the company, you'll typically need to file a personal Self Assessment return as well, reporting that income alongside anything else you earn personally. We've written more on the two separate Companies House deadlines specifically, since <a href="/knowledge-hub/companies-house-filing-deadlines-every-small-business-owner-should-know">missing either one is a common and avoidable mistake</a>.</p>
+
+<h2>What You Actually Need Before You Can File</h2>
+<p>Whichever structure applies to you, filing an accurate return depends on having the numbers ready beforehand:</p>
+<ul>
+<li>Reconciled <a href="/services#bookkeeping">bookkeeping</a> for the full period, so income and expenses are complete and correctly categorised.</li>
+<li>Records of any assets bought or sold, loans taken out or repaid, and — for companies — dividends or salary paid to directors.</li>
+<li>VAT records for the period, if you're VAT registered.</li>
+<li>Your Unique Taxpayer Reference (UTR) and Government Gateway login details to file online.</li>
+</ul>
+<p>Trying to pull all of this together in the days before a deadline is where most stress and most mistakes happen. Getting bookkeeping done monthly, rather than reconstructed once a year, is what turns filing into a formality instead of a scramble.</p>
+
+<h2>Filing It Yourself vs Using an Accountant</h2>
+<p>HMRC's and Companies House's online systems are built so you can file yourself, and plenty of very small, simple businesses do. It tends to make sense to bring in an accountant once your affairs have any real complexity — multiple income sources, a limited company with dividends and payroll, claims you're not confident about, or simply not having the time to get it right. An accountant filing on your behalf also acts as a second check on the numbers before anything is submitted, which matters given that errors on a filed return can mean penalties or a corrected return later.</p>
+
+<h2>Where Owners Most Often Get Stuck</h2>
+<ul>
+<li>Confusing the Companies House and HMRC deadlines, or assuming filing one covers the other.</li>
+<li>Leaving bookkeeping until the deadline is close, which turns a routine filing into a rushed reconstruction of the whole year.</li>
+<li>Not knowing whether they need to register for something new — Self Assessment, VAT, PAYE — until it's already overdue.</li>
+<li>Missing the payment deadline even after filing the return on time — filing and paying are two separate actions with the same due date, and it's easy to tick off one and forget the other.</li>
+</ul>
+
+<p>This is general guidance, not personalised tax advice — the filings that actually apply to you depend on your specific structure and circumstances, so always confirm current deadlines and requirements on gov.uk. If you'd rather hand the whole process over — bookkeeping kept current all year, and your returns prepared and filed on time — our <a href="/services#annual">annual accounts service</a> covers exactly that, wherever in <a href="/areas">our service area</a> your business is based.</p>`,
+  },
 ];
 
 export function getPost(slug: string) {
