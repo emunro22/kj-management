@@ -1,10 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { BadgeCheck, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import type { Review } from '@/data/reviews';
 import StarRating from './StarRating';
+
+/** Auto-advance interval while the rail is idle (ms). */
+const AUTOPLAY_DELAY = 4000;
+/** How long a manual interaction pauses autoplay before it resumes (ms). */
+const RESUME_DELAY = 8000;
 
 export default function ReviewRail({
   reviews,
@@ -14,19 +19,66 @@ export default function ReviewRail({
   variant: 'google' | 'upwork';
 }) {
   const railRef = useRef<HTMLUListElement>(null);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [paused, setPaused] = useState(false);
 
-  const scrollBy = (direction: 1 | -1) => {
+  const cardStep = useCallback(() => {
     const rail = railRef.current;
-    if (!rail) return;
+    if (!rail) return 320;
     const card = rail.querySelector('li');
-    const amount = card ? card.clientWidth + 24 : 320;
-    rail.scrollBy({ left: amount * direction, behavior: 'smooth' });
+    return card ? card.clientWidth + 24 : 320;
+  }, []);
+
+  const scrollBy = useCallback(
+    (direction: 1 | -1) => {
+      const rail = railRef.current;
+      if (!rail) return;
+
+      const atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+      const atStart = rail.scrollLeft <= 4;
+
+      if (direction === 1 && atEnd) {
+        rail.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (direction === -1 && atStart) {
+        rail.scrollTo({ left: rail.scrollWidth, behavior: 'smooth' });
+      } else {
+        rail.scrollBy({ left: cardStep() * direction, behavior: 'smooth' });
+      }
+    },
+    [cardStep],
+  );
+
+  const pauseThenResume = useCallback(() => {
+    setPaused(true);
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => setPaused(false), RESUME_DELAY);
+  }, []);
+
+  const handleManualScroll = (direction: 1 | -1) => {
+    scrollBy(direction);
+    pauseThenResume();
   };
 
+  // Slide to the next review automatically, pausing on hover/touch/manual nav.
+  useEffect(() => {
+    if (paused || reviews.length < 2) return;
+    const id = setInterval(() => scrollBy(1), AUTOPLAY_DELAY);
+    return () => clearInterval(id);
+  }, [paused, reviews.length, scrollBy]);
+
+  useEffect(() => () => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+  }, []);
+
   return (
-    <div className="relative min-w-0">
-      <RailButton side="left" onClick={() => scrollBy(-1)} />
-      <RailButton side="right" onClick={() => scrollBy(1)} />
+    <div
+      className="relative min-w-0"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={pauseThenResume}
+    >
+      <RailButton side="left" onClick={() => handleManualScroll(-1)} />
+      <RailButton side="right" onClick={() => handleManualScroll(1)} />
 
       <ul
         ref={railRef}
