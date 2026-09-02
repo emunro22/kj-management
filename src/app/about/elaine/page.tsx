@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CalendarCheck } from 'lucide-react';
 import Reveal from '@/components/Reveal';
+import PinkPageHero from '@/components/PinkPageHero';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { site } from '@/data/site';
 
@@ -34,24 +36,10 @@ const whoFor = [
 export default function AboutElainePage() {
   return (
     <>
-      <section className="relative isolate flex min-h-[320px] items-center overflow-hidden lg:min-h-[400px]">
-        <Image
-          src="/images/page-hero-about-testimonials.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-z-10 object-cover object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-900/70 via-pink-800/60 to-pink-950/75" />
-
-        <div className="container-kj py-16 text-center text-white">
-          <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">Meet Elaine</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-[17px] leading-[1.8] text-white/90">
-            Financial clarity and confidence for women building their own businesses.
-          </p>
-        </div>
-      </section>
+      <PinkPageHero
+        title="Meet Elaine"
+        intro="Financial clarity and confidence for women building their own businesses."
+      />
 
       <section className="bg-white py-20 lg:py-24">
         <div className="container-kj grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -124,7 +112,7 @@ export default function AboutElainePage() {
             ))}
           </ul>
 
-          <Reveal delay={0.2} className="mt-14 text-center">
+          <Reveal delay={0.2} className="mt-14 flex flex-col items-center gap-4">
             <a
               href={site.calendlyElaine}
               target="_blank"
@@ -134,6 +122,12 @@ export default function AboutElainePage() {
               <CalendarCheck size={20} aria-hidden="true" />
               Book Your Free Call
             </a>
+            <Link
+              href="/women-in-business"
+              className="font-body text-sm font-medium uppercase tracking-[0.04em] text-ink underline underline-offset-4 hover:text-pink-600"
+            >
+              Explore topics for women in business
+            </Link>
           </Reveal>
         </div>
       </section>

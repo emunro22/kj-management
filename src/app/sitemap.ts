@@ -3,16 +3,20 @@ import { site } from '@/data/site';
 import { posts } from '@/data/posts';
 import { areas } from '@/data/areas';
 import { services } from '@/data/services';
+import { womenInBusinessQueries } from '@/data/womenInBusiness';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/services',
     '/about',
+    '/about/kieran',
+    '/about/elaine',
     '/testimonials',
     '/contact',
     '/knowledge-hub',
     '/areas',
+    '/women-in-business',
   ].map((path) => ({
     url: `${site.url}${path}`,
     lastModified: new Date(),
@@ -43,11 +47,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
+  const womenInBusinessPages = womenInBusinessQueries.map((entry) => ({
+    url: `${site.url}/women-in-business/${entry.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.65,
+  }));
+
   return [
     ...routes,
     ...articles,
     ...areaHubs,
     ...areaServices,
+    ...womenInBusinessPages,
     { url: `${site.url}/privacy-policy`, lastModified: new Date(), priority: 0.3 },
   ];
 }

@@ -13,6 +13,7 @@ const allLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'About Us', href: '/about' },
+  { label: 'For Women in Business', href: '/women-in-business' },
   { label: 'Contact', href: '/contact' },
 ];
 

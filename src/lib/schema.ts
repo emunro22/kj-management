@@ -62,3 +62,34 @@ export function areaServiceSchema({
     areaServed: { '@type': 'City', name: areaName },
   };
 }
+
+/** Service schema for topic-led pages that aren't scoped to a single place. */
+export function topicServiceSchema({
+  serviceName,
+  description,
+  url,
+}: {
+  serviceName: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: serviceName,
+    name: serviceName,
+    description,
+    url: `${site.url}${url}`,
+    provider: {
+      '@type': 'AccountingService',
+      name: site.name,
+      url: site.url,
+      telephone: site.phone,
+      email: site.email,
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'United Kingdom' },
+      { '@type': 'AdministrativeArea', name: 'Scotland' },
+    ],
+  };
+}
