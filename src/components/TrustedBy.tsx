@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Reveal from './Reveal';
-import { site } from '@/data/site';
 
 const badges = [
   {
@@ -8,7 +7,6 @@ const badges = [
     alt: 'ACCA',
     w: 130,
     h: 130,
-    caption: `License Number ${site.accaLicence}`,
   },
   {
     src: '/images/badge-upwork.jpg',
@@ -40,9 +38,6 @@ export default function TrustedBy() {
                   height={badge.h}
                   className="h-auto w-[110px] object-contain sm:w-[130px]"
                 />
-                {badge.caption ? (
-                  <p className="text-center text-xs text-ink-soft">{badge.caption}</p>
-                ) : null}
               </li>
             ))}
           </ul>

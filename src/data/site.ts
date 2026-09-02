@@ -11,6 +11,8 @@ export const site = {
   whatsappUrl: 'https://wa.me/447301064755?text=Hi',
   addressLine: 'Serving businesses remotely across the UK & internationally',
   calendly: 'https://calendly.com/kjmanagementaccountingsolutions-info/30min',
+  calendlyKieran: 'https://calendly.com/kjmanagementaccountingsolutions-info/30min',
+  calendlyElaine: 'https://calendly.com/elaine-kjmanagementaccountingsolutions/30min',
   founders: 'Kieran Johnston & Elaine Bryson',
   socials: {
     tiktok: 'https://www.tiktok.com/@kjmasolutions',
@@ -23,7 +25,6 @@ export const site = {
   googleWriteReviewUrl:
     'https://search.google.com/local/writereview?placeid=ChIJmwD7OSpriEgRr1SmXy16-zA',
   upworkProfileUrl: 'https://www.upwork.com/freelancers/kieranmanagementaccounting',
-  accaLicence: '24616840',
 } as const;
 
 export const nav = [

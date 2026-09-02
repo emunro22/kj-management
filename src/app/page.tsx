@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import BookTeam from '@/components/BookTeam';
 import TrustedBy from '@/components/TrustedBy';
 import ChevronDivider from '@/components/ChevronDivider';
 import Services from '@/components/Services';
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <BookTeam />
       <TrustedBy />
       <ChevronDivider />
       <Services />

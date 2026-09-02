@@ -97,6 +97,18 @@ export default function AboutPage() {
               At {site.name}, we don&rsquo;t just process numbers—we partner with you, helping you
               understand your finances, plan ahead, and grow your business sustainably.
             </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/about/kieran" className="btn-brand">
+                Meet Kieran
+              </Link>
+              <Link
+                href="/about/elaine"
+                className="btn bg-pink-500 text-white hover:bg-pink-600 hover:shadow-[0_10px_28px_rgba(236,72,153,0.35)]"
+              >
+                Meet Elaine
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

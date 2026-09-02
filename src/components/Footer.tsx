@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { services } from '@/data/services';
@@ -21,6 +24,9 @@ const support = [
 const featuredAreas = areas.slice(0, 8);
 
 export default function Footer() {
+  const pathname = usePathname();
+  const pink = pathname?.startsWith('/about/elaine') ?? false;
+
   return (
     <footer className="bg-white pt-20">
       <div className="container-kj">
@@ -58,10 +64,10 @@ export default function Footer() {
               </FooterLink>
             ))}
             <li className="flex gap-2 pt-4">
-              <SocialSquare href={site.socials.tiktok} label="TikTok">
+              <SocialSquare href={site.socials.tiktok} label="TikTok" pink={pink}>
                 <TikTokGlyph />
               </SocialSquare>
-              <SocialSquare href={site.socials.instagram} label="Instagram">
+              <SocialSquare href={site.socials.instagram} label="Instagram" pink={pink}>
                 <Instagram size={17} />
               </SocialSquare>
             </li>
@@ -113,10 +119,12 @@ function SocialSquare({
   href,
   label,
   children,
+  pink = false,
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
+  pink?: boolean;
 }) {
   return (
     <a
@@ -124,7 +132,9 @@ function SocialSquare({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex h-9 w-9 items-center justify-center bg-brand text-white transition-colors hover:bg-brand-600"
+      className={`inline-flex h-9 w-9 items-center justify-center text-white transition-colors ${
+        pink ? 'bg-pink-500 hover:bg-pink-600' : 'bg-brand hover:bg-brand-600'
+      }`}
     >
       {children}
     </a>

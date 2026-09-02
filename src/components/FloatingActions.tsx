@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
@@ -7,6 +8,8 @@ import { site } from '@/data/site';
 
 export default function FloatingActions() {
   const [showTop, setShowTop] = useState(false);
+  const pathname = usePathname();
+  const pink = pathname?.startsWith('/about/elaine') ?? false;
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 600);
@@ -26,7 +29,9 @@ export default function FloatingActions() {
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Back to top"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-lg transition-colors hover:bg-brand-600"
+            className={`inline-flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg transition-colors ${
+              pink ? 'bg-pink-500 hover:bg-pink-600' : 'bg-brand hover:bg-brand-600'
+            }`}
           >
             <ArrowUp size={22} />
           </motion.button>

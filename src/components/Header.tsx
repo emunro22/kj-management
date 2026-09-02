@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Instagram, Menu, X } from 'lucide-react';
@@ -10,6 +11,8 @@ import Logo from './Logo';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const pink = pathname?.startsWith('/about/elaine') ?? false;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -52,19 +55,19 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <SocialLink href={site.socials.tiktok} label="TikTok">
+          <SocialLink href={site.socials.tiktok} label="TikTok" pink={pink}>
             <TikTokIcon />
           </SocialLink>
-          <SocialLink href={site.socials.instagram} label="Instagram">
+          <SocialLink href={site.socials.instagram} label="Instagram" pink={pink}>
             <Instagram size={20} />
           </SocialLink>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <SocialLink href={site.socials.tiktok} label="TikTok" compact>
+          <SocialLink href={site.socials.tiktok} label="TikTok" compact pink={pink}>
             <TikTokIcon />
           </SocialLink>
-          <SocialLink href={site.socials.instagram} label="Instagram" compact>
+          <SocialLink href={site.socials.instagram} label="Instagram" compact pink={pink}>
             <Instagram size={18} />
           </SocialLink>
 
@@ -116,11 +119,13 @@ function SocialLink({
   label,
   children,
   compact = false,
+  pink = false,
 }: {
   href: string;
   label: string;
   children: React.ReactNode;
   compact?: boolean;
+  pink?: boolean;
 }) {
   return (
     <a
@@ -128,9 +133,9 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={`inline-flex items-center justify-center rounded-[2px] bg-brand text-white transition-colors hover:bg-brand-600 ${
-        compact ? 'h-9 w-9' : 'h-10 w-10'
-      }`}
+      className={`inline-flex items-center justify-center rounded-[2px] text-white transition-colors ${
+        pink ? 'bg-pink-500 hover:bg-pink-600' : 'bg-brand hover:bg-brand-600'
+      } ${compact ? 'h-9 w-9' : 'h-10 w-10'}`}
     >
       {children}
     </a>

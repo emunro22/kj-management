@@ -3,7 +3,7 @@ import { site } from '@/data/site';
 import { WhatsAppGlyph } from './WhatsAppGlyph';
 
 /** The dark contact strip that closes every page on the live site. */
-export default function LetsGetInTouch() {
+export default function LetsGetInTouch({ pink = false }: { pink?: boolean }) {
   return (
     <section className="bg-surface-dark">
       <div className="container-kj grid items-stretch gap-px sm:grid-cols-3">
@@ -19,14 +19,16 @@ export default function LetsGetInTouch() {
           value={site.phone}
           iconBg="bg-[#25D366]"
           icon={<WhatsAppGlyph size={22} />}
+          pink={pink}
         />
 
         <ContactTile
           href={`mailto:${site.email}`}
           label="Email Us"
           value={site.email}
-          iconBg="bg-brand"
+          iconBg={pink ? 'bg-pink-500' : 'bg-brand'}
           icon={<Mail size={22} className="text-white" />}
+          pink={pink}
         />
       </div>
     </section>
@@ -39,12 +41,14 @@ function ContactTile({
   value,
   icon,
   iconBg,
+  pink,
 }: {
   href: string;
   label: string;
   value: string;
   icon: React.ReactNode;
   iconBg: string;
+  pink: boolean;
 }) {
   return (
     <a
@@ -60,7 +64,11 @@ function ContactTile({
         {icon}
       </span>
       <span className="min-w-0">
-        <span className="block font-accent text-[18px] font-semibold text-brand">{label}</span>
+        <span
+          className={`block font-accent text-[18px] font-semibold ${pink ? 'text-pink-500' : 'text-brand'}`}
+        >
+          {label}
+        </span>
         <span className="block break-all text-[18px] font-medium text-white">{value}</span>
       </span>
     </a>
