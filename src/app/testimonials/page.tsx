@@ -26,7 +26,7 @@ export default async function TestimonialsPage() {
     <>
       <PageHero
         title="Testimonials"
-        intro="We are here to give small businesses the financial clarity and confidence they need to grow. But you do not have to take our word for it — here is what clients say about working with us."
+        intro="We are here to give small businesses the financial clarity and confidence they need to grow. But you do not have to take our word for it: here is what clients say about working with us."
         bgSrc="/images/page-hero-about-testimonials.jpg"
       />
 

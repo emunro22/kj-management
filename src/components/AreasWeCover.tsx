@@ -18,7 +18,7 @@ export default function AreasWeCover() {
         <Reveal className="mx-auto mt-6 max-w-2xl text-center">
           <p className="text-[17px] leading-[1.8] text-ink-soft">
             Based in Uddingston, working with small business owners across South Lanarkshire,
-            North Lanarkshire and Greater Glasgow — in person locally, and through cloud-based
+            North Lanarkshire and Greater Glasgow, in person locally, and through cloud-based
             systems and video calls everywhere else.
           </p>
         </Reveal>

@@ -18,7 +18,7 @@ export default function CtaBand() {
 
           <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
             From simplifying daily accounting to helping you plan for sustainable growth, we take
-            the complexity out of finance—so you can focus on running and growing your business
+            the complexity out of finance, so you can focus on running and growing your business
             with confidence.
           </p>
 

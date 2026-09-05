@@ -40,7 +40,7 @@ export default function ContactForm({
       if (!res.ok) throw new Error(json.error ?? 'Message could not be sent.');
 
       setStatus('sent');
-      setMessage('Thanks — your message is on its way. We usually reply within one working day.');
+      setMessage('Thanks, your message is on its way. We usually reply within one working day.');
       form.reset();
     } catch (error) {
       setStatus('error');
@@ -58,7 +58,7 @@ export default function ContactForm({
       className={`relative ${onBrand ? 'bg-brand' : 'bg-white shadow-card'} p-7 sm:p-9`}
       noValidate
     >
-      {/* Honeypot — bots fill this, humans never see it */}
+      {/* Honeypot: bots fill this, humans never see it */}
       <input
         type="text"
         name="company"

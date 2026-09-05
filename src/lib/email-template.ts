@@ -4,12 +4,12 @@ export const escapeHtml = (value: string) =>
   value.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c] as string);
 
 /**
- * Shared branded wrapper for transactional emails — mirrors the site's look
+ * Shared branded wrapper for transactional emails, mirroring the site's look
  * (Arial, brand orange, dark ink) so the inbox experience matches the website.
  * Table-based layout with inline styles for email client compatibility.
  */
 /**
- * Email clients fetch images from a public URL — they can't reach files bundled
+ * Email clients fetch images from a public URL; they can't reach files bundled
  * with the app. This stays pointed at the stable Vercel alias (rather than
  * `site.url`) so the logo keeps resolving even before the production domain's
  * DNS is cut over to this deployment.

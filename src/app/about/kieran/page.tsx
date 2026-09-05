@@ -10,7 +10,7 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'About Kieran',
   description:
-    'Meet Kieran Johnston, founder of KJ Management Accounting Solutions — a Chartered Accountant helping small business owners with cash flow, forecasting and virtual financial controller support.',
+    'Meet Kieran Johnston, founder of KJ Management Accounting Solutions, a Chartered Accountant helping small business owners with cash flow, forecasting and virtual financial controller support.',
   alternates: { canonical: '/about/kieran' },
 };
 
@@ -25,7 +25,7 @@ const focusAreas = [
   },
   {
     title: 'Strategic Financial Planning',
-    body: 'Turning your numbers into a plan — budgeting, scenario planning, and decisions backed by data.',
+    body: 'Turning your numbers into a plan: budgeting, scenario planning, and decisions backed by data.',
   },
   {
     title: 'Compliance Done Properly',
@@ -60,7 +60,7 @@ export default function AboutKieranPage() {
             </p>
             <p className="mt-6 text-[17px] leading-[1.8] text-ink-soft">
               Kieran founded {site.name} to give small business owners the kind of finance
-              function usually reserved for much bigger companies — proactive, strategic, and
+              function usually reserved for much bigger companies: proactive, strategic, and
               built around where the business is heading, not just where it&rsquo;s been.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
@@ -71,7 +71,7 @@ export default function AboutKieranPage() {
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
               Today he works hands-on with a select group of clients as a virtual financial
-              controller — forecasting, planning, and making sure the numbers are working for the
+              controller: forecasting, planning, and making sure the numbers are working for the
               business, not just sitting in a spreadsheet.
             </p>
 

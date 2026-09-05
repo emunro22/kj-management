@@ -18,7 +18,7 @@ const pillars = [
   {
     icon: BarChart3,
     title: 'Educating & Empowering Business Owners',
-    body: 'We don’t just manage your accounts—we make sure you understand them. We believe in empowering our clients by explaining what’s happening with their finances so they can make better business decisions with confidence.',
+    body: 'We don’t just manage your accounts; we make sure you understand them. We believe in empowering our clients by explaining what’s happening with their finances so they can make better business decisions with confidence.',
   },
   {
     icon: ScrollText,
@@ -28,7 +28,7 @@ const pillars = [
   {
     icon: HandshakeIcon,
     title: 'A True Finance Partner – Not Just an Accountant',
-    body: 'From cash flow planning to financial forecasting, bookkeeping to boardroom strategy, we offer a full finance function, so you have the financial leadership your business needs—without the overhead of hiring in-house.',
+    body: 'From cash flow planning to financial forecasting, bookkeeping to boardroom strategy, we offer a full finance function, so you have the financial leadership your business needs, without the overhead of hiring in-house.',
   },
 ];
 
@@ -47,9 +47,9 @@ export default function WhyChooseUs() {
             </h2>
             <p className="mt-6 max-w-xl text-[17px] leading-[1.75] text-ink-soft">
               For many small businesses, accounting is seen as nothing more than a compliance
-              requirement—just ticking boxes for HMRC and Companies House. But at KJ Management
+              requirement: just ticking boxes for HMRC and Companies House. But at KJ Management
               Accounting Solutions, we believe your finances should do more than just keep you
-              compliant—they should work for you, helping you make smarter decisions and grow with
+              compliant; they should work for you, helping you make smarter decisions and grow with
               confidence.
             </p>
           </Reveal>

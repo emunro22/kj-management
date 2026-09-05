@@ -27,7 +27,7 @@ function relativeTimeFrom(iso: string): string {
 }
 
 /**
- * Option A — Featurable.
+ * Option A: Featurable.
  * Free, no Google Cloud billing, and returns the full review history rather
  * than the 5 most helpful. Create a widget at featurable.com, then set
  * NEXT_PUBLIC_FEATURABLE_WIDGET_ID.
@@ -63,7 +63,7 @@ async function fromFeaturable(widgetId: string): Promise<ReviewFeed | null> {
 }
 
 /**
- * Option B — Google Places API (New).
+ * Option B: Google Places API (New).
  * Returns a MAXIMUM of 5 reviews. Requires a billing-enabled key restricted to
  * your server. Google's terms require reviews to be shown with attribution and
  * not cached indefinitely, so this is revalidated daily.

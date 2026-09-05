@@ -35,7 +35,7 @@ export default function Header() {
       }`}
     >
       <div className="container-kj flex h-[107px] items-center justify-between gap-6">
-        <Link href="/" aria-label={`${site.name} — home`} className="shrink-0">
+        <Link href="/" aria-label={`${site.name}, home`} className="shrink-0">
           <Logo className="h-[83px] w-auto" />
         </Link>
 

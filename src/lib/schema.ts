@@ -31,7 +31,7 @@ export function faqSchema(faqs: { question: string; answer: string | string[] }[
 }
 
 /**
- * Service schema scoped to a place. Deliberately omits `address` — KJ has no
+ * Service schema scoped to a place. Deliberately omits `address`: KJ has no
  * public branch network, so we describe coverage via `areaServed` only.
  */
 export function areaServiceSchema({
@@ -60,6 +60,47 @@ export function areaServiceSchema({
       email: site.email,
     },
     areaServed: { '@type': 'City', name: areaName },
+  };
+}
+
+/** Article schema for Knowledge Hub posts. */
+export function articleSchema({
+  title,
+  description,
+  datePublished,
+  url,
+  image,
+}: {
+  title: string;
+  description: string;
+  datePublished: string;
+  url: string;
+  image?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    datePublished,
+    dateModified: datePublished,
+    url: `${site.url}${url}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}${url}` },
+    ...(image ? { image: `${site.url}${image}` } : {}),
+    author: {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site.url}/images/logo-header.png`,
+      },
+    },
   };
 }
 

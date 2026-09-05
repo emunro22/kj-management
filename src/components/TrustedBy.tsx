@@ -10,7 +10,7 @@ const badges = [
   },
   {
     src: '/images/badge-upwork.jpg',
-    alt: 'Upwork Top Rated Plus — 100% job success',
+    alt: 'Upwork Top Rated Plus, 100% job success',
     w: 150,
     h: 150,
   },

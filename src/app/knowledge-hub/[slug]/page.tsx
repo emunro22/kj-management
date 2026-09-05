@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { getPost, posts } from '@/data/posts';
 import { site } from '@/data/site';
+import { articleSchema } from '@/lib/schema';
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -36,8 +37,17 @@ export default async function PostPage({ params }: Params) {
   const post = getPost(slug);
   if (!post) notFound();
 
+  const schema = articleSchema({
+    title: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    url: `/knowledge-hub/${post.slug}`,
+  });
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+
       <article className="container-kj max-w-3xl py-16 lg:py-20">
         <Link
           href="/knowledge-hub"

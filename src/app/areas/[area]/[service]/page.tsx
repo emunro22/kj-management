@@ -54,7 +54,7 @@ export default async function AreaServicePage({ params }: Params) {
   const aliasLabels = service.aliases.map((a) => a.label);
   const aliasFaq = {
     question: `Do you offer ${aliasLabels[0]} services in ${area.name}?`,
-    answer: `Yes — some clients know this as ${
+    answer: `Yes, some clients know this as ${
       aliasLabels.length > 1
         ? `${aliasLabels.slice(0, -1).join(', ')} or ${aliasLabels[aliasLabels.length - 1]}`
         : aliasLabels[0]
@@ -111,8 +111,8 @@ export default async function AreaServicePage({ params }: Params) {
                     {i > 0 ? (i === aliasLabels.length - 1 ? ' or ' : ', ') : ''}
                     <strong className="font-semibold text-ink">{label}</strong>
                   </span>
-                ))}{' '}
-                — it&rsquo;s the same service under the same roof.
+                ))}
+                , it&rsquo;s the same service under the same roof.
               </p>
             ) : null}
           </Reveal>

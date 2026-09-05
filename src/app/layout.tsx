@@ -7,7 +7,7 @@ import FloatingActions from '@/components/FloatingActions';
 import { site } from '@/data/site';
 import './globals.css';
 
-/** The live site is set in plain Arial almost everywhere — these two are the
+/** The live site is set in plain Arial almost everywhere. These two are the
  *  only real webfont exceptions (contact-tile labels, small uppercase tags). */
 const accent = Poppins({
   subsets: ['latin'],

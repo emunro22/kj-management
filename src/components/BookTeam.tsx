@@ -49,7 +49,7 @@ export default function BookTeam() {
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-[17px] leading-[1.8] text-ink-soft">
           Pick whoever&rsquo;s the right fit for your business and grab a slot directly in their
-          calendar — no forms, no waiting.
+          calendar, no forms, no waiting.
         </p>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">

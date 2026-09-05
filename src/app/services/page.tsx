@@ -76,9 +76,9 @@ export default function ServicesPage() {
             </h2>
             <p className="mt-7 text-[17px] leading-[1.8] text-ink-soft">
               For many small businesses, accounting is seen as nothing more than a compliance
-              requirement—just ticking boxes for HMRC and Companies House. But at KJ Management
+              requirement: just ticking boxes for HMRC and Companies House. But at KJ Management
               Accounting Solutions, we believe your finances should do more than just keep you
-              compliant—they should work for you, helping you make smarter decisions and grow with
+              compliant; they should work for you, helping you make smarter decisions and grow with
               confidence.
             </p>
           </Reveal>

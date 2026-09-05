@@ -12,7 +12,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'For Women in Business',
   description:
-    'Financial guidance, services and answers built for women running their own businesses — from Elaine Bryson, co-founder of KJ Management Accounting Solutions.',
+    'Financial guidance, services and answers built for women running their own businesses, from Elaine Bryson, co-founder of KJ Management Accounting Solutions.',
   alternates: { canonical: '/women-in-business' },
 };
 
@@ -34,7 +34,7 @@ export default function WomenInBusinessIndexPage() {
 
       <PinkPageHero
         title="For Women in Business"
-        intro="Elaine Bryson works exclusively with women running their own businesses — here's guidance, services and straight answers to the questions that come up most."
+        intro="Elaine Bryson works exclusively with women running their own businesses: here's guidance, services and straight answers to the questions that come up most."
       />
 
       {categories.map((category) => (

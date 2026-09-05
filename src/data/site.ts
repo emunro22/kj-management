@@ -3,7 +3,7 @@ export const site = {
   shortName: 'KJ Management',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kjmanagementaccountingsolutions.com',
   description:
-    'A complete finance function for small business owners — management accounting, cash flow planning, forecasting, bookkeeping and virtual financial controller services.',
+    'A complete finance function for small business owners: management accounting, cash flow planning, forecasting, bookkeeping and virtual financial controller services.',
   email: 'info@kjmanagementaccountingsolutions.com',
   phone: '+447301064755',
   phoneDisplay: '+44 7301 064755',

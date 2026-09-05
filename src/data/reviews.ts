@@ -8,7 +8,7 @@ export type Review = {
   rating: number;
   text: string;
   source: 'google' | 'upwork';
-  /** Upwork only — the job title the review was left against. */
+  /** Upwork only: the job title the review was left against. */
   jobTitle?: string;
 };
 
@@ -22,7 +22,7 @@ export type Review = {
  *    copied into your own database indefinitely.
  *  - Upwork review text belongs to the client who wrote it.
  *
- * Connect a live source instead — see src/lib/google-reviews.ts and README.md.
+ * Connect a live source instead: see src/lib/google-reviews.ts and README.md.
  */
 export const fallbackGoogleReviews: Review[] = [
   {
@@ -94,7 +94,7 @@ export const fallbackGoogleReviews: Review[] = [
     initial: 'V',
     relativeTime: '11 months ago',
     rating: 5,
-    text: 'Kieran is an excellent accountant — knowledgeable, meticulous, and always delivers on time. What really stands out is his responsiveness and willingness to help, which makes a huge difference, especially for startups and SMBs where speed and clarity are key. A true professional and a great partner to have as you build your business. Highly recommend working with Kieran!',
+    text: 'Kieran is an excellent accountant: knowledgeable, meticulous, and always delivers on time. What really stands out is his responsiveness and willingness to help, which makes a huge difference, especially for startups and SMBs where speed and clarity are key. A true professional and a great partner to have as you build your business. Highly recommend working with Kieran!',
     source: 'google',
   },
   {

@@ -11,7 +11,7 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with KJ Management Accounting Solutions — WhatsApp, email, or book a free 30-minute consultation.',
+    'Get in touch with KJ Management Accounting Solutions: WhatsApp, email, or book a free 30-minute consultation.',
   alternates: { canonical: '/contact' },
 };
 
@@ -86,7 +86,7 @@ export default function ContactPage() {
             </h2>
             <p className="mt-7 text-[17px] leading-[1.8] text-ink-soft">
               At {site.name}, we know that small businesses need more than just
-              compliance-based accounting—they need financial clarity, strategic insights, and a
+              compliance-based accounting. They need financial clarity, strategic insights, and a
               trusted partner who understands their goals.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">

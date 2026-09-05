@@ -88,7 +88,7 @@ export default async function WomenInBusinessQueryPage({ params }: Params) {
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">{entry.context}</p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
               Elaine Bryson is a Chartered Accountant and co-founder of {site.name}, working
-              exclusively with women running their own businesses — from solo founders to small
+              exclusively with women running their own businesses, from solo founders to small
               teams. No jargon, no talking down, just clear answers and an ongoing finance partner
               in your corner.
             </p>

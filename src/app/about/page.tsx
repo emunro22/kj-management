@@ -10,7 +10,7 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Founded by Kieran Johnston and Elaine Bryson, KJ Management Accounting Solutions gives small businesses a full finance function — not just compliance.',
+    'Founded by Kieran Johnston and Elaine Bryson, KJ Management Accounting Solutions gives small businesses a full finance function, not just compliance.',
   alternates: { canonical: '/about' },
 };
 
@@ -21,7 +21,7 @@ const principles = [
   },
   {
     title: 'Clarity & Education',
-    body: 'We believe in simplifying finance—not just doing the numbers, but helping you understand them so you can make better business decisions with confidence.',
+    body: 'We believe in simplifying finance, not just doing the numbers, but helping you understand them so you can make better business decisions with confidence.',
   },
   {
     title: 'Quality Over Quantity',
@@ -47,12 +47,12 @@ export default function AboutPage() {
             </h2>
             <p className="mt-7 text-[17px] leading-[1.8] text-ink-soft">
               At {site.name}, we specialise in providing small businesses with a full finance
-              function—from bookkeeping and cash flow planning to strategic financial management.
+              function, from bookkeeping and cash flow planning to strategic financial management.
               Our goal is to simplify your finances, provide clear insights, and help you make
               informed decisions so you can focus on running and growing your business.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
-              We believe accounting is more than just compliance—it&rsquo;s about understanding your
+              We believe accounting is more than just compliance: it&rsquo;s about understanding your
               numbers, using them strategically, and ensuring financial stability for long-term
               success.
             </p>
@@ -89,12 +89,12 @@ export default function AboutPage() {
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
               Kieran and Elaine recognised that many small business owners struggle with cash flow,
-              financial planning, and compliance—often viewing accounting as a box-ticking exercise
+              financial planning, and compliance, often viewing accounting as a box-ticking exercise
               rather than a tool for business growth. Their shared vision was to change that by
               offering a proactive, insightful, and hands-on approach that truly adds value.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
-              At {site.name}, we don&rsquo;t just process numbers—we partner with you, helping you
+              At {site.name}, we don&rsquo;t just process numbers; we partner with you, helping you
               understand your finances, plan ahead, and grow your business sustainably.
             </p>
 
@@ -145,7 +145,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-6 text-[17px] leading-[1.8] text-ink-soft">
               At {site.name}, we know that small businesses need more than just
-              compliance-based accounting—they need financial clarity, strategic insights, and a
+              compliance-based accounting, they need financial clarity, strategic insights, and a
               trusted partner who understands their goals.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">

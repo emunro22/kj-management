@@ -32,7 +32,7 @@ export default function AreasIndexPage() {
 
       <PageHero
         title="Accountancy and Finance Support in Glasgow and Across the UK"
-        intro="KJ Management Accounting Solutions is based in Uddingston, supporting businesses across Glasgow, South Lanarkshire and North Lanarkshire. We work flexibly around each client, combining face-to-face meetings where helpful with regular video calls and cloud-based systems. Our work isn't limited to Scotland—we also support businesses across the UK, including fractional Financial Controller and Finance Director work for clients in London, as well as businesses internationally."
+        intro="KJ Management Accounting Solutions is based in Uddingston, supporting businesses across Glasgow, South Lanarkshire and North Lanarkshire. We work flexibly around each client, combining face-to-face meetings where helpful with regular video calls and cloud-based systems. Our work isn't limited to Scotland. We also support businesses across the UK, including fractional Financial Controller and Finance Director work for clients in London, as well as businesses internationally."
       />
 
       {regions.map((region) => (

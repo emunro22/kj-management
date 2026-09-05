@@ -10,7 +10,7 @@ export type Service = {
    * (e.g. "finance controller" for Virtual Financial Controller). Used to:
    *  - broaden on-page keyword coverage on the canonical area/service page
    *  - generate /areas/[area]/[alias] redirects into the canonical page
-   * Deliberately NOT separate indexed pages — near-duplicate content across
+   * Deliberately NOT separate indexed pages: near-duplicate content across
    * synonyms is a doorway-page risk, so we consolidate ranking signal onto
    * one strong page per area/service instead of splitting it.
    */
@@ -43,7 +43,7 @@ export const services: Service[] = [
     blurb:
       'Monthly management accounts that tell you what actually happened in the business, and what to do about it.',
     intro:
-      'Understanding your numbers is the foundation of smart business decisions. At KJ Management Accounting Solutions, we go beyond traditional accounting by providing clear, actionable financial insights that help you manage, plan, and grow your business effectively. We don’t just generate reports—we help you interpret the numbers, identify opportunities, and make informed financial decisions with confidence.',
+      'Understanding your numbers is the foundation of smart business decisions. At KJ Management Accounting Solutions, we go beyond traditional accounting by providing clear, actionable financial insights that help you manage, plan, and grow your business effectively. We don’t just generate reports; we help you interpret the numbers, identify opportunities, and make informed financial decisions with confidence.',
     points: [
       {
         label: 'Regular, Tailored Financial Reports',
@@ -84,7 +84,7 @@ export const services: Service[] = [
     blurb:
       'Year-end accounts prepared and filed with Companies House and HMRC, on time and without the last-minute scramble.',
     intro:
-      'Your annual accounts are more than just a compliance requirement—they provide valuable insights into your business performance. At KJ Management Accounting Solutions, we ensure your financial statements are accurate, timely, and fully compliant with HMRC and Companies House regulations.',
+      'Your annual accounts are more than just a compliance requirement: they provide valuable insights into your business performance. At KJ Management Accounting Solutions, we ensure your financial statements are accurate, timely, and fully compliant with HMRC and Companies House regulations.',
     points: [
       {
         label: 'Preparation of Year-End Accounts',
@@ -279,7 +279,7 @@ export const services: Service[] = [
     iconSrc: '/images/icons/Virtual-Financial-Controller.svg',
     blurb: 'Senior finance leadership on a part-time basis, without the cost of hiring in-house.',
     intro:
-      'Not every business needs a full-time finance director—but every business needs financial leadership. Our Virtual Financial Controller service gives you expert financial management without the cost of hiring in-house.',
+      'Not every business needs a full-time finance director, but every business needs financial leadership. Our Virtual Financial Controller service gives you expert financial management without the cost of hiring in-house.',
     points: [
       {
         label: 'Strategic Financial Planning',

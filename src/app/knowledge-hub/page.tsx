@@ -9,7 +9,7 @@ import { posts } from '@/data/posts';
 export const metadata: Metadata = {
   title: 'Knowledge Hub',
   description:
-    'Straightforward, easy-to-understand financial insights for small business owners — management accounts, forecasting, bookkeeping and more.',
+    'Straightforward, easy-to-understand financial insights for small business owners: management accounts, forecasting, bookkeeping and more.',
   alternates: { canonical: '/knowledge-hub' },
 };
 
@@ -26,7 +26,7 @@ export default function KnowledgeHubPage() {
     <>
       <PageHero
         title="Knowledge Hub"
-        intro="Your hub for straightforward, easy-to-understand financial insights — helping you make sense of business finance with clarity and confidence."
+        intro="Your hub for straightforward, easy-to-understand financial insights, helping you make sense of business finance with clarity and confidence."
       />
 
       <section className="bg-surface-grey py-20 lg:py-24">

@@ -10,7 +10,7 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'About Elaine',
   description:
-    'Meet Elaine Bryson, co-founder of KJ Management Accounting Solutions — a Chartered Accountant who works closely with women running their own businesses.',
+    'Meet Elaine Bryson, co-founder of KJ Management Accounting Solutions, a Chartered Accountant who works closely with women running their own businesses.',
   alternates: { canonical: '/about/elaine' },
 };
 
@@ -25,7 +25,7 @@ const whoFor = [
   },
   {
     title: 'A Real Finance Partner',
-    body: 'Business owners who want someone in their corner to ask questions to — not just an accountant who appears once a year.',
+    body: 'Business owners who want someone in their corner to ask questions to, not just an accountant who appears once a year.',
   },
   {
     title: 'Financial Confidence, Not Jargon',
@@ -64,14 +64,14 @@ export default function AboutElainePage() {
               Co-Founder &amp; Chartered Accountant
             </p>
             <p className="mt-6 text-[17px] leading-[1.8] text-ink-soft">
-              Elaine works with women who run their own businesses — from solo founders to small
-              teams — giving them a finance partner who genuinely gets what it takes to build
+              Elaine works with women who run their own businesses, from solo founders to small
+              teams, giving them a finance partner who genuinely gets what it takes to build
               something from the ground up.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">
               As a Chartered Accountant, she brings the technical rigour, but what clients notice
               first is the approach: no jargon, no talking down, just clear answers to the
-              questions that actually keep business owners up at night — can I afford this, what
+              questions that actually keep business owners up at night: can I afford this, what
               happens if that client leaves, am I paying myself properly.
             </p>
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">

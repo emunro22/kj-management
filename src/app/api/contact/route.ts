@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
   }
 
-  // Honeypot filled — pretend it worked, drop the message.
+  // Honeypot filled: pretend it worked, drop the message.
   if (body.company) return NextResponse.json({ ok: true });
 
   const fullName =
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
   });
 
   const autoReplyHtml = emailShell({
-    preheader: `Thanks for getting in touch with ${site.name} — we'll reply within one working day.`,
+    preheader: `Thanks for getting in touch with ${site.name}. We'll reply within one working day.`,
     body: `
       <h1 style="margin:0 0 20px;font-size:20px;color:#EE7C3B;">Thanks for your message</h1>
       <p style="margin:0 0 16px;">Hi ${escapeHtml(firstName)},</p>
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
 
     if (error) throw new Error(error.message);
 
-    // Auto-reply to the customer — best-effort, doesn't fail the request if it errors.
+    // Auto-reply to the customer: best-effort, doesn't fail the request if it errors.
     resend.emails
       .send({
         from: fromAddress,
