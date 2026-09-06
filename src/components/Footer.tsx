@@ -13,6 +13,7 @@ const allLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'About Us', href: '/about' },
+  { label: 'Meet the Team', href: '/about/team' },
   { label: 'For Women in Business', href: '/women-in-business' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -20,6 +21,8 @@ const allLinks = [
 const support = [
   { label: 'FAQ', href: '/#faq' },
   { label: 'Contact Us', href: '/contact' },
+  { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
 ];
 
 const featuredAreas = areas.slice(0, 8);

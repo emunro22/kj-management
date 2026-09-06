@@ -32,7 +32,13 @@ export default function ServicesPage() {
           >
             <div className="container-kj grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
               <Reveal>
-                <Image src={service.iconSrc} alt="" width={56} height={56} className="h-14 w-14" />
+                <Image
+                  src={service.iconSrc}
+                  alt={`${service.title} icon`}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14"
+                />
                 <h2 className="mt-5 text-3xl leading-tight text-ink sm:text-4xl">
                   {service.title}
                 </h2>

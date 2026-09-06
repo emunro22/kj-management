@@ -32,7 +32,7 @@ export default function Services() {
                 >
                   <Image
                     src={service.iconSrc}
-                    alt=""
+                    alt={`${service.title} icon`}
                     width={48}
                     height={48}
                     className="h-12 w-12 transition-transform duration-300 group-hover:scale-110"

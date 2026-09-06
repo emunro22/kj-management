@@ -118,7 +118,14 @@ export default function ContactForm({
             htmlFor="consent"
             className={`text-[15px] font-medium leading-snug ${onBrand ? 'text-white' : 'text-ink-soft'}`}
           >
-            By clicking sign up you are agreeing to the terms of use and acknowledging the{' '}
+            By clicking sign up you are agreeing to the{' '}
+            <a
+              href="/terms"
+              className={onBrand ? 'text-yellow-300 underline underline-offset-2' : 'text-brand underline underline-offset-2'}
+            >
+              terms of use
+            </a>{' '}
+            and acknowledging the{' '}
             <a
               href="/privacy-policy"
               className={onBrand ? 'text-yellow-300 underline underline-offset-2' : 'text-brand underline underline-offset-2'}

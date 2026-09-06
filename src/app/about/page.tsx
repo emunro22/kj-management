@@ -108,6 +108,12 @@ export default function AboutPage() {
               >
                 Meet Elaine
               </Link>
+              <Link
+                href="/about/team"
+                className="font-body text-sm font-medium uppercase tracking-[0.04em] text-ink underline underline-offset-4 hover:text-brand"
+              >
+                Meet the Team
+              </Link>
             </div>
           </Reveal>
         </div>

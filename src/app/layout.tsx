@@ -26,7 +26,7 @@ const label = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Management Accountants for Small Business`,
+    default: `${site.name} | Glasgow Accountants`,
     template: `%s | ${site.shortName}`,
   },
   description: site.description,
@@ -64,12 +64,17 @@ export const metadata: Metadata = {
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'AccountingService',
+  '@type': ['AccountingService', 'LocalBusiness'],
+  '@id': `${site.url}/#organization`,
   name: site.name,
+  legalName: site.name,
   url: site.url,
   email: site.email,
   telephone: site.phone,
+  logo: `${site.url}/images/logo-header.png`,
+  image: `${site.url}/images/og.jpg`,
   description: site.description,
+  founder: site.founders.split(' & ').map((name) => ({ '@type': 'Person', name })),
   areaServed: [
     { '@type': 'Country', name: 'United Kingdom' },
     { '@type': 'AdministrativeArea', name: 'South Lanarkshire' },

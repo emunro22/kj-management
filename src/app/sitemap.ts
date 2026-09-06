@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/about/kieran',
     '/about/elaine',
+    '/about/team',
     '/testimonials',
     '/contact',
     '/knowledge-hub',
@@ -61,5 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...areaServices,
     ...womenInBusinessPages,
     { url: `${site.url}/privacy-policy`, lastModified: new Date(), priority: 0.3 },
+    { url: `${site.url}/terms`, lastModified: new Date(), priority: 0.3 },
   ];
 }

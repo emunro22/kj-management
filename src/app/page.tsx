@@ -11,10 +11,16 @@ import Testimonials from '@/components/Testimonials';
 import MissionBanner from '@/components/MissionBanner';
 import Faq from '@/components/Faq';
 import Contact from '@/components/Contact';
+import { faqs } from '@/data/faqs';
+import { faqSchema } from '@/lib/schema';
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
+      />
       <Hero />
       <BookTeam />
       <TrustedBy />
