@@ -68,12 +68,15 @@ export function articleSchema({
   title,
   description,
   datePublished,
+  dateModified,
   url,
   image,
 }: {
   title: string;
   description: string;
   datePublished: string;
+  /** Date of the last substantive rewrite. Falls back to `datePublished`. */
+  dateModified?: string;
   url: string;
   image?: string;
 }) {
@@ -83,7 +86,7 @@ export function articleSchema({
     headline: title,
     description,
     datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified ?? datePublished,
     url: `${site.url}${url}`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}${url}` },
     ...(image ? { image: `${site.url}${image}` } : {}),

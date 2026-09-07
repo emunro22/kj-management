@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articles = posts.map((post) => ({
     url: `${site.url}/knowledge-hub/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.updated ?? post.date),
     changeFrequency: 'yearly' as const,
     priority: 0.6,
   }));

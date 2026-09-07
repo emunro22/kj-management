@@ -1,15 +1,36 @@
+export type PostFaq = { question: string; answer: string };
+
 export type Post = {
   slug: string;
   title: string;
   /** ISO date, used for sorting and <time>. */
   date: string;
+  /** ISO date of the last substantive rewrite, surfaced as "Updated" + dateModified. */
+  updated?: string;
   excerpt: string;
   /**
-   * Article body as HTML.
+   * Search-result title, when it should differ from the on-page <h1>.
    *
-   * Left empty deliberately. Export the real post content from WordPress
-   * (Tools → Export → Posts) and paste the HTML in here, or move to MDX /
-   * a headless CMS; see README section 7.
+   * The h1 is written for the reader; this is written for the phrasing people
+   * actually type. Search Console showed pages ranking on page one for terms
+   * ("p&l budget meaning", "management accounting services") that appeared
+   * nowhere in their title, which is a large part of why impressions were not
+   * converting into clicks.
+   */
+  metaTitle?: string;
+  /** Search-result description. Falls back to `excerpt`. */
+  metaDescription?: string;
+  /**
+   * Questions rendered on-page and emitted as FAQPage schema. Most of the
+   * traffic these articles attract is question-shaped ("how often should
+   * forecasts be updated?"), which is what gets pulled into People Also Ask
+   * and AI Overviews.
+   */
+  faqs?: PostFaq[];
+  /** Slugs of related articles, rendered as an internal-link block. */
+  related?: string[];
+  /**
+   * Article body as HTML.
    */
   body?: string;
 };
@@ -21,21 +42,77 @@ export const posts: Post[] = [
     date: '2025-03-31',
     excerpt:
       'What management accounts actually contain, how they differ from year-end accounts, and why they change the decisions you make.',
-    body: `<p>Every limited company files annual accounts once a year, because it has to. Far fewer small businesses produce management accounts every month, even though nothing is stopping them, and that gap is usually down to not knowing what management accounts actually are rather than deciding they are not worth it.</p>
+    updated: '2026-09-07',
+    metaTitle: 'What Are Management Accounts? Meaning, Contents & Purpose',
+    metaDescription:
+      'Management accounts explained: what they are, what a monthly pack includes, how they differ from statutory accounts, and how often they should be prepared.',
+    faqs: [
+      {
+        question: 'What are management accounts?',
+        answer:
+          'Management accounts are internal financial reports, usually produced monthly, showing how a business is performing right now. A pack typically includes a profit and loss account for the period, a balance sheet snapshot, and commentary on what changed and why. They are not filed with Companies House or HMRC and follow no statutory format.',
+      },
+      {
+        question: 'What is included in management accounts?',
+        answer:
+          'A useful monthly pack includes a profit and loss account for the month and year to date, a balance sheet snapshot, variance analysis against budget, aged debtors and creditors, a cash flow summary, and plain-English commentary explaining what moved and what needs a decision.',
+      },
+      {
+        question: 'What is the difference between management accounts and statutory accounts?',
+        answer:
+          'Statutory accounts are an annual compliance document filed with Companies House and HMRC in a prescribed format. Management accounts are produced monthly for the business owner, follow whatever format is most useful, are far more detailed, and are current enough to change a decision rather than explain one afterwards.',
+      },
+      {
+        question: 'How often are management accounts prepared?',
+        answer:
+          'Monthly is the standard and what most businesses should aim for, because it matches the rhythm of payroll, stock and supplier payments. Quarterly is a reasonable compromise for very small or simple businesses, though a problem can then run for three months before it surfaces.',
+      },
+    ],
+    related: [
+      'how-to-read-your-management-accounts-a-beginners-guide-for-owners',
+      'how-often-should-you-review-your-management-accounts',
+      'why-every-business-needs-a-profit-and-loss-budget',
+      'what-is-management-accounting-and-why-does-your-business-need-it',
+    ],
+    body: `<p>Management accounts are a set of internal financial reports, usually produced monthly, that show how a business is performing right now. A typical pack contains a profit and loss account for the period, a balance sheet snapshot, and written commentary explaining what changed and why. Unlike annual accounts they are not filed anywhere and follow no statutory format: they exist purely so the people running the business can make better decisions.</p>
 
-<h2>What management accounts contain</h2>
-<p>A typical monthly pack includes a profit and loss account for the period, a balance sheet snapshot, and a short commentary on what changed and why. Some packs add a cash flow summary or a comparison against budget. Unlike annual accounts, there is no fixed statutory format: the pack is built around what the owner actually needs to see, not what a regulator requires.</p>
+<p>Every limited company files annual accounts once a year, because it has to. Far fewer small businesses produce management accounts every month, even though nothing is stopping them, and that gap is usually down to not knowing what management accounts actually are rather than deciding they are not worth it.</p>
 
-<h2>How they differ from year-end accounts</h2>
-<p>Annual accounts are a compliance document, filed with Companies House and HMRC, and by the time they are finalised they can already be describing a financial year that ended months earlier. Management accounts are the opposite: produced monthly, built for the owner rather than a regulator, and current enough to actually change a decision before it is made rather than explain one after the fact.</p>
+<h2>What is included in management accounts</h2>
+<p>There is no prescribed format, but a useful monthly pack almost always contains:</p>
+<ul>
+<li><strong>A profit and loss account</strong> for the month and the year to date, ideally with the prior year and the budget alongside for comparison.</li>
+<li><strong>A balance sheet snapshot</strong> showing what the business owns and owes at the period end.</li>
+<li><strong>Variance analysis</strong> against the <a href="/knowledge-hub/why-every-business-needs-a-profit-and-loss-budget">profit and loss budget</a>, so gaps are explained rather than absorbed.</li>
+<li><strong>Aged debtors and creditors</strong>, listing who owes you money and how overdue they are, and what you owe out.</li>
+<li><strong>A cash flow summary or forecast</strong>, because profit and cash are different questions.</li>
+<li><strong>Commentary</strong>, in plain English, covering what moved, why, and what needs a decision.</li>
+</ul>
+<p>Beyond that, the pack is built around what the owner actually needs to see. A business with several sites will want results split by site; an agency will want them split by client or project; a product business will want gross margin by line. That flexibility is the whole advantage of a report no regulator has to approve.</p>
 
-<h2>Why they change the decisions you make</h2>
-<p>Without monthly numbers, most owners are making calls on hiring, pricing, or spending based on how the bank balance looks that week, which is a poor proxy for the underlying position. <a href="/services#management">Management accounts</a> replace that guesswork with an actual read on margin, cash and trend, so a decision to take on a new member of staff or push into a new order is backed by something more solid than instinct.</p>
+<h2>Management accounts vs statutory accounts</h2>
+<p>The two are often confused, but they answer different questions for different audiences.</p>
+<ul>
+<li><strong>Purpose.</strong> Statutory accounts are a compliance document for Companies House and HMRC. Management accounts are a decision-making tool for you.</li>
+<li><strong>Timing.</strong> Statutory accounts are annual and can be finalised many months after the year they describe has ended. Management accounts are produced within weeks of the month closing.</li>
+<li><strong>Format.</strong> Statutory accounts follow a legally prescribed layout. Management accounts follow whatever layout is most useful.</li>
+<li><strong>Detail.</strong> Statutory accounts summarise, and small companies can file abridged versions showing very little. Management accounts go the other way and break the numbers down.</li>
+<li><strong>Audit and filing.</strong> Statutory accounts may be audited and are filed publicly. Management accounts are neither.</li>
+</ul>
+<p>By the time annual accounts are finalised they can already be describing a financial year that ended months earlier. Management accounts are the opposite: current enough to change a decision before it is made rather than explain one after the fact.</p>
+
+<h2>The purpose: why they change the decisions you make</h2>
+<p>Without monthly numbers, most owners are making calls on hiring, pricing, or spending based on how the bank balance looks that week, which is a poor proxy for the underlying position. The balance may include VAT you are holding on HMRC's behalf, or a deposit for work you have not delivered yet.</p>
+<p>Management accounts replace that guesswork with an actual read on margin, cash and trend. A decision to take on a new member of staff or push into a new order is then backed by something more solid than instinct. They also catch problems while they are still small: a gross margin slipping from 42% to 35% is obvious in month two on a monthly pack, and invisible until the year end without one.</p>
+<p>They matter externally too. Lenders, investors and buyers routinely ask for recent management accounts, and a business that can produce twelve consistent monthly packs presents very differently from one that cannot.</p>
+
+<h2>How often should they be prepared?</h2>
+<p>Monthly is the standard, and it is what most businesses should aim for, because it matches the rhythm of decisions like payroll, stock and supplier payments. Quarterly packs are a reasonable compromise for very small or simple businesses, though the trade-off is that a problem can run for three months before it surfaces. Anything less frequent tends to stop being management information and start being history. Whichever cadence you choose, consistency matters more than perfection, since the value comes from comparing like with like over time.</p>
 
 <h2>Getting started</h2>
-<p>You do not need a finance department to have management accounts. Cloud accounting software like Xero makes the underlying reports available at any time, and turning that raw data into a monthly pack with commentary is exactly the kind of ongoing work a management accountant does.</p>
+<p>You do not need a finance department to have management accounts. Cloud accounting software like Xero makes the underlying reports available at any time, and turning that raw data into a monthly pack with commentary is exactly the kind of ongoing work a management accountant does. The prerequisite is <a href="/knowledge-hub/what-does-a-bookkeeper-actually-do-a-plain-english-guide">bookkeeping that is kept current</a>, because a pack built on half-reconciled data is worse than none at all.</p>
 
-<p>This is general information rather than advice tailored to your business: if you would like to see what a monthly management accounts pack would actually look like for your numbers, <a href="/services">get in touch</a> and we can talk through it.</p>`,
+<p>This is general information rather than advice tailored to your business: if you would like to see what a monthly <a href="/services#management">management accounts</a> pack would actually look like for your numbers, <a href="/contact">get in touch</a> and we can talk through it.</p>`,
   },
   {
     slug: 'why-forecasting-matters-and-how-often-should-you-update-yours',
@@ -43,18 +120,74 @@ export const posts: Post[] = [
     date: '2025-03-31',
     excerpt:
       'A forecast is only useful while it is current. How often to revisit yours, and what to change when you do.',
-    body: `<p>A cash flow forecast is only as good as the assumptions behind it, and those assumptions go stale the moment a big customer pays late, a new contract lands, or costs move. A forecast built once in January and left untouched tells you less and less as the year goes on, which is why the update rhythm matters as much as the forecast itself.</p>
+    updated: '2026-09-07',
+    metaTitle: 'How Often Should You Update Your Financial Forecast?',
+    metaDescription:
+      'How often to update a business forecast, monthly versus quarterly versus annually, what to change when you reforecast, and the events that should trigger an off-cycle revision.',
+    faqs: [
+      {
+        question: 'How often should forecasts be updated?',
+        answer:
+          'Monthly for most small businesses, reviewed alongside your management accounts, using the actual figures from the month just gone to correct the assumptions ahead. Weekly is worth it when cash is tight or the business is growing fast. Quarterly is the realistic minimum, and an annual forecast left untouched stops being useful within a few months.',
+      },
+      {
+        question: 'Should a forecast be revised monthly or annually?',
+        answer:
+          'Monthly. An annual cycle suits a budget, which is meant to stay fixed as a benchmark, but a forecast exists to give you the best current view of what is coming. Revising it monthly keeps the near-term picture, the next eight to twelve weeks, reliable enough to act on.',
+      },
+      {
+        question: 'When should you adjust your business forecast off-cycle?',
+        answer:
+          'Immediately after anything that changes the size or timing of your cash: winning or losing a significant customer, a hire or redundancy, a large capital purchase, taking on finance or a new lease, a supplier price rise you cannot absorb, or a late payment big enough to move the position.',
+      },
+      {
+        question: 'What is the difference between a budget and a forecast?',
+        answer:
+          'A budget is set before the year starts and deliberately left alone so it stays a stable benchmark to measure against. A forecast is deliberately revised as circumstances change. Most businesses need both, and rewriting the budget to match results removes the only fixed reference point you have.',
+      },
+    ],
+    related: [
+      'how-to-build-a-cash-flow-forecast-from-scratch',
+      'why-every-business-needs-a-profit-and-loss-budget',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
+    body: `<p>For most small businesses a financial forecast should be updated monthly, reviewed alongside your management accounts, using the actual figures from the month just gone to correct the assumptions in the months ahead. Quarterly is the realistic minimum if monthly is not achievable, and an annual forecast left untouched stops being useful within a few months of being written.</p>
+
+<p>A cash flow forecast is only as good as the assumptions behind it, and those assumptions go stale the moment a big customer pays late, a new contract lands, or costs move. A forecast built once in January and left alone tells you less and less as the year goes on, which is why the update rhythm matters as much as the forecast itself.</p>
 
 <h2>Why forecasting matters</h2>
-<p>Profit and cash are not the same thing. A business can be profitable on paper while running short of cash because of timing: money owed to you hasn't landed yet, while wages and supplier bills are due regardless. A <a href="/services#cash">cash flow forecast</a> lays out expected income and outgoings week by week or month by month, so you can see a squeeze coming while there is still time to do something about it, rather than discovering it the day a payment bounces.</p>
+<p>Profit and cash are not the same thing. A business can be profitable on paper while running short of cash because of timing: money owed to you has not landed yet, while wages and supplier bills are due regardless. A <a href="/services#cash">cash flow forecast</a> lays out expected income and outgoings week by week or month by month, so you can see a squeeze coming while there is still time to do something about it, rather than discovering it the day a payment bounces.</p>
+<p>Seeing it early is what creates options. Six weeks of warning means you can chase debtors, stage a supplier payment, delay a purchase or arrange facilities on reasonable terms. Six days of warning usually means an expensive solution or none at all.</p>
 
-<h2>How often to update it</h2>
-<p>Monthly is the practical minimum for most small businesses: reviewed alongside your management accounts, using actual figures from the month just gone to correct the assumptions in the months ahead. Businesses with tighter margins, seasonal trade, or a big upcoming decision (a hire, a new lease, a large purchase) often benefit from checking it more often than that, particularly around the decision itself.</p>
+<h2>Monthly versus quarterly versus annual</h2>
+<p>The right cadence depends on how quickly your numbers move:</p>
+<ul>
+<li><strong>Monthly.</strong> The right answer for most trading businesses. It fits the natural cycle of payroll, VAT and supplier terms, and it keeps the near-term view, the next eight to twelve weeks, genuinely reliable.</li>
+<li><strong>Weekly.</strong> Worth it when cash is tight, when the business is seasonal, or through a period of rapid growth. Growth consumes cash before it produces it, which surprises people.</li>
+<li><strong>Quarterly.</strong> Workable for stable businesses with predictable income, long contracts and few surprises. The cost is that a developing problem gets three months of runway before you see it.</li>
+<li><strong>Annually.</strong> Fine for a budget, which is meant to stay fixed as a benchmark. Not fine for a forecast, which is meant to track reality.</li>
+</ul>
+
+<h2>Budget and forecast are different documents</h2>
+<p>This trips people up regularly. A <a href="/knowledge-hub/why-every-business-needs-a-profit-and-loss-budget">profit and loss budget</a> is set before the year starts and deliberately left alone, because its job is to be a stable benchmark you measure against. A forecast is deliberately revised, because its job is to give you the best current view of what is coming. Updating your forecast is normal practice; quietly rewriting your budget to match your results is how businesses lose the ability to tell whether they are on track.</p>
 
 <h2>What to change when you revisit it</h2>
-<p>Replace projected figures with actuals as they come in, and adjust anything that assumption was based on: a customer who now pays slower than expected, a cost that has gone up, a new contract that changes the picture. The point of updating regularly is not to redo the whole forecast from scratch each time, it is to keep it honest so the picture a few months out stays useful rather than becoming a guess dressed up as a plan.</p>
+<p>Reforecasting does not mean rebuilding from scratch each month. It means replacing projections with actuals as they come in, then adjusting whatever those actuals prove wrong:</p>
+<ol>
+<li><strong>Drop in the actuals</strong> for the month just closed, so the starting cash position is real rather than assumed.</li>
+<li><strong>Re-time the money in.</strong> If a customer who was assumed to pay in 30 days is consistently paying in 55, change the assumption rather than hoping.</li>
+<li><strong>Update costs that have moved,</strong> including the annual and quarterly ones such as insurance renewals, VAT and corporation tax, in the month they actually fall.</li>
+<li><strong>Add what is new.</strong> A contract won, a hire made, a piece of equipment ordered.</li>
+<li><strong>Look at the variances,</strong> and separate timing differences, which correct themselves, from permanent changes, which need a response.</li>
+</ol>
 
-<p>This is general guidance rather than a forecast built around your specific business: if you would like help building or maintaining one that reflects your actual numbers, our <a href="/services#cash">cash flow planning service</a> can build and keep it current for you.</p>`,
+<h2>When to update it off-cycle</h2>
+<p>Some events should trigger a revision immediately rather than waiting for month end: winning or losing a significant customer, a hire or a redundancy, a large capital purchase, taking on finance or a new lease, a supplier price rise you cannot absorb, or a late payment big enough to move the position. The rule of thumb is straightforward, if something has just changed the size or the timing of your cash, the forecast is out of date the moment it happens.</p>
+
+<p>The point of updating regularly is not to redo the whole forecast each time, it is to keep it honest so the picture a few months out stays useful rather than becoming a guess dressed up as a plan.</p>
+
+<p>This is general guidance rather than a forecast built around your specific business. If you would like help building one and keeping it current, our <a href="/services#cash">cash flow planning service</a> does that as an ongoing monthly job, and it works best alongside <a href="/knowledge-hub/what-are-management-accounts-and-why-every-small-business-should-use-them">monthly management accounts</a>.</p>`,
   },
   {
     slug: 'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
@@ -62,6 +195,15 @@ export const posts: Post[] = [
     date: '2025-03-19',
     excerpt:
       'The bookkeeping habits that keep your records clean, your filings simple, and your reports worth reading.',
+    metaTitle: 'Bookkeeping Made Simple: What Every Business Owner Should Know',
+    metaDescription:
+      'The bookkeeping habits that keep records clean and filings straightforward: reconciling regularly, separating spending, categorising consistently and keeping proper records.',
+    related: [
+      'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
+      '5-signs-your-business-has-outgrown-its-current-bookkeeping-setup',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+      'xero-vs-quickbooks-which-bookkeeping-software-is-right-for-your-business',
+    ],
     body: `<p>Bookkeeping is the unglamorous part of running a business, and it is also the part everything else depends on. A VAT return, a set of annual accounts, and a monthly management accounts pack are all only as accurate as the records underneath them, so the habits below are less about box-ticking and more about making everything downstream easier.</p>
 
 <h2>Reconcile regularly, not just at year end</h2>
@@ -87,6 +229,15 @@ export const posts: Post[] = [
     date: '2025-03-16',
     excerpt:
       'What small and micro companies must file, when it is due, and where owners most often get caught out.',
+    metaTitle: 'Annual Accounts for Small & Micro Companies: A UK Guide',
+    metaDescription:
+      'What annual accounts are, what small and micro-entity companies must file with Companies House and HMRC, the deadlines that apply, and what it typically costs.',
+    related: [
+      'companies-house-filing-deadlines-every-small-business-owner-should-know',
+      'sole-trader-vs-limited-company-what-changes-for-your-accounts',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
     body: `<p>Every UK limited company must file annual accounts with Companies House, whether it traded that year or not, alongside a Corporation Tax return and payment to HMRC. Small and micro companies qualify for a simplified filing regime, but "simplified" still means a real set of statutory obligations with real deadlines.</p>
 
 <h2>What has to be filed</h2>
@@ -109,6 +260,78 @@ export const posts: Post[] = [
     date: '2025-03-16',
     excerpt:
       'How a P&L budget turns targets into something you can track, and what to do when actuals drift from plan.',
+    updated: '2026-09-07',
+    metaTitle: 'P&L Budget Explained: What It Is and How to Build One',
+    metaDescription:
+      'What a profit and loss budget is, how a P&L budget differs from your P&L account and from a forecast, what to include, and how to review it against actuals each month.',
+    faqs: [
+      {
+        question: 'What is a P&L budget?',
+        answer:
+          'A profit and loss budget is a month-by-month plan for the income and costs you expect over the year ahead, laid out in the same format as your profit and loss account. It sets out expected revenue, direct costs, gross profit, overheads and net profit, so actual results can be measured against it.',
+      },
+      {
+        question: 'What is the difference between a P&L budget and a P&L account?',
+        answer:
+          'They share the same layout. The profit and loss account is a record of what the business actually earned and spent over a period that has finished, produced from your bookkeeping. The P&L budget is written before the period starts and describes what you intend to happen.',
+      },
+      {
+        question: 'What is the difference between a budget and a forecast?',
+        answer:
+          'A budget is fixed once at the start of the year so it remains a stable benchmark. A forecast is updated as circumstances change, replacing assumptions with actuals. The budget answers whether you are where you said you would be; the forecast answers where you are heading now.',
+      },
+      {
+        question: 'What should a profit and loss budget include?',
+        answer:
+          'Revenue broken down by income stream, direct costs that vary with sales, gross profit and margin percentage, overheads listed line by line with annual and quarterly costs placed in the month they fall, and net profit at the bottom. It should be phased for seasonality rather than split evenly across twelve months.',
+      },
+    ],
+    related: [
+      'break-even-analysis-explained-know-the-number-you-need-to-hit',
+      'how-to-build-a-cash-flow-forecast-from-scratch',
+      'why-forecasting-matters-and-how-often-should-you-update-yours',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
+    body: `<p>A profit and loss budget (often shortened to a P&L budget) is a month-by-month plan for the income and costs you expect over the year ahead, laid out in the same format as your profit and loss account. It sets out what you think you will sell, what it will cost to deliver, and what should be left as profit, so that when the real figures arrive you have something concrete to measure them against.</p>
+
+<p>That last part is the point. A profit and loss account on its own tells you what happened. A P&L budget tells you what was supposed to happen, and the gap between the two is where the useful information lives.</p>
+
+<h2>What a P&L budget actually contains</h2>
+<p>The structure mirrors your profit and loss account, one column per month, so the comparison is like for like:</p>
+<ul>
+<li><strong>Revenue</strong>, broken down by income stream, product or service line rather than lumped into one figure.</li>
+<li><strong>Direct costs</strong>, the costs that rise and fall with sales, such as materials, subcontractors or delivery.</li>
+<li><strong>Gross profit</strong>, what is left after direct costs, and the gross margin percentage that produces.</li>
+<li><strong>Overheads</strong>, the costs you carry regardless of how much you sell: salaries, rent, software, insurance, professional fees.</li>
+<li><strong>Net profit</strong>, the figure at the bottom, which is the number the whole exercise is really about.</li>
+</ul>
+
+<h2>P&L budget vs profit and loss account</h2>
+<p>They use the same layout, which is exactly why people mix them up. The difference is timing and purpose: the profit and loss account is a record of what your business actually earned and spent over a period that has already finished, produced from your bookkeeping. The P&L budget is written before the period starts and describes what you intend to happen. One is history, the other is a target, and they are designed to sit side by side.</p>
+
+<h2>Budget vs forecast: not the same thing</h2>
+<p>A budget is fixed. You set it once, usually before the financial year begins, and you leave it alone so it stays a meaningful benchmark all year. A forecast is deliberately updated as circumstances change, replacing assumptions with actuals as they come in. Most businesses need both: the budget answers "are we where we said we would be?", while the <a href="/knowledge-hub/why-forecasting-matters-and-how-often-should-you-update-yours">forecast</a> answers "where are we heading from here?". Rewriting the budget every time you miss it removes the only stable reference point you have.</p>
+
+<h2>Why the budget changes decisions</h2>
+<p>Without one, judgements about hiring, pricing or spending get made against the bank balance, which is a poor proxy for how the business is actually performing. Money in the account may be a VAT payment you are holding on HMRC's behalf, or a deposit for work you have not delivered yet.</p>
+<p>With a budget in place, the questions get sharper. If you planned for a 42% gross margin and you are running at 35%, that is a specific problem with either pricing or delivery costs, and it is visible in month two rather than at the year end. If overheads have crept 8% above plan, you can see which lines moved. A budget converts a vague sense that things feel tight into a number you can do something about.</p>
+
+<h2>How to build one</h2>
+<p>Start with last year's figures if you have them, since a budget built from your own history is far more credible than one built from ambition. Then work through it in order:</p>
+<ol>
+<li><strong>Build revenue from the bottom up.</strong> Volume multiplied by price, per income stream, rather than last year plus 10%. If the growth has to come from somewhere specific, name it.</li>
+<li><strong>Apply realistic margins.</strong> Use the gross margin you actually achieved, not the one you quote. If you intend to improve it, write down what will change to make that happen.</li>
+<li><strong>List overheads line by line.</strong> Include the annual and quarterly ones in the month they fall, so insurance renewals and software subscriptions do not ambush a single month.</li>
+<li><strong>Phase it properly.</strong> Very few businesses earn one twelfth of their revenue each month. Put the seasonality in, or every month will look like a variance.</li>
+<li><strong>Sense-check the bottom line.</strong> If the net profit is not enough to cover tax, drawings and reinvestment, the plan needs changing now, not in month nine.</li>
+</ol>
+
+<h2>Reviewing it: variance analysis</h2>
+<p>A budget filed and forgotten does nothing. The value comes from comparing it to actuals every month as part of your <a href="/knowledge-hub/what-are-management-accounts-and-why-every-small-business-should-use-them">management accounts</a>, and asking three questions of every meaningful gap: what moved, why did it move, and is it a timing difference or a permanent change? A large invoice landing a month later than planned is timing and will correct itself. A supplier price rise is permanent and needs a response, usually to your own pricing.</p>
+
+<p>It is also worth remembering that profit is not cash. A budget can be met in full while the business still runs short, because customers pay on their own schedule. That is why a P&L budget works best alongside a <a href="/knowledge-hub/how-to-build-a-cash-flow-forecast-from-scratch">cash flow forecast</a> rather than instead of one.</p>
+
+<p>This is general guidance rather than advice built around your particular numbers. If you would like a P&L budget built for your business, and reviewed against actuals each month so the variances get acted on, our <a href="/services#budgeting">budgeting and forecasting service</a> does exactly that.</p>`,
   },
   {
     slug: 'what-is-management-accounting-and-why-does-your-business-need-it',
@@ -116,6 +339,75 @@ export const posts: Post[] = [
     date: '2025-03-16',
     excerpt:
       'Management accounting explained for owners: what it covers, and the decisions it is designed to support.',
+    updated: '2026-09-07',
+    metaTitle: 'What Is Management Accounting? A Guide for Business Owners',
+    metaDescription:
+      'Management accounting explained: how it differs from financial accounting, what a management accountant actually does month to month, and when a small business needs one.',
+    faqs: [
+      {
+        question: 'What is management accounting?',
+        answer:
+          'Management accounting is the practice of turning a business’s financial data into information the owner can act on while there is still time to act. It covers monthly reporting, costing and margin analysis, budgeting, cash flow forecasting and decision support, as opposed to the annual compliance reporting produced for HMRC and Companies House.',
+      },
+      {
+        question: 'What is the difference between management accounting and financial accounting?',
+        answer:
+          'Financial accounting reports outward to HMRC, Companies House and lenders, annually, in a prescribed format, describing what already happened. Management accounting reports inward to owners and directors, typically monthly, in whatever format is most useful, and spends much of its effort on what happens next.',
+      },
+      {
+        question: 'What does a management accountant do?',
+        answer:
+          'Produces monthly management accounts with commentary, works out what each product or service genuinely costs to deliver, sets and reports against a budget, maintains cash flow forecasts, and runs the numbers on specific decisions such as a hire, a price change or a large order before they are made.',
+      },
+      {
+        question: 'Does a small business need management accounting?',
+        answer:
+          'The trigger is complexity rather than size. Once you have more than one income stream, staff on payroll, stock, or a meaningful gap between doing work and being paid for it, the numbers stop being obvious. Some businesses reach that point around £150k of turnover, others not until well beyond £1m.',
+      },
+    ],
+    related: [
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+      'how-to-choose-a-management-accountant-for-your-small-business',
+      'what-is-a-virtual-financial-controller-and-how-do-they-work',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+    ],
+    body: `<p>Management accounting is the practice of turning your business's financial data into information you can act on while there is still time to act. Where financial accounting produces a compliance record for HMRC and Companies House after the year has ended, management accounting produces regular internal reporting, monthly figures, margin analysis, forecasts and commentary, aimed squarely at the person making the decisions.</p>
+
+<p>The distinction matters because most small businesses only ever see the compliance half. They receive a set of accounts several months after the year end, glance at the profit figure, and file it. Nothing in that process was designed to help them run the business.</p>
+
+<h2>Management accounting vs financial accounting</h2>
+<p>Both work from the same underlying bookkeeping, but almost everything else differs:</p>
+<ul>
+<li><strong>Audience.</strong> Financial accounting reports outward, to HMRC, Companies House, lenders. Management accounting reports inward, to owners and directors.</li>
+<li><strong>Timing.</strong> Financial accounts are annual and retrospective. Management accounts are typically monthly and current enough to change a decision.</li>
+<li><strong>Format.</strong> Statutory accounts follow a prescribed format. Management reporting has no fixed format, so it can be built around the questions your business actually has.</li>
+<li><strong>Detail.</strong> Statutory accounts summarise. Management accounting breaks results down by product, service line, customer or site, which is where the useful patterns live.</li>
+<li><strong>Outlook.</strong> Financial accounting records what happened. Management accounting spends much of its effort on what happens next.</li>
+</ul>
+
+<h2>What a management accountant actually does</h2>
+<p>The job goes beyond producing numbers. In practice it covers:</p>
+<ul>
+<li><strong>Monthly reporting.</strong> A profit and loss for the period, a balance sheet snapshot, and written commentary explaining what moved and why. <a href="/knowledge-hub/how-to-read-your-management-accounts-a-beginners-guide-for-owners">Reading that pack properly</a> is a skill in itself, and a good accountant teaches it rather than assuming it.</li>
+<li><strong>Costing and margin analysis.</strong> Working out what each product, service or contract genuinely costs to deliver once overheads are allocated, which is often where a business discovers its busiest work is its least profitable.</li>
+<li><strong>Budgeting and variance analysis.</strong> Setting a <a href="/knowledge-hub/why-every-business-needs-a-profit-and-loss-budget">profit and loss budget</a> and then reporting against it each month, so gaps get explained rather than absorbed.</li>
+<li><strong>Cash flow forecasting.</strong> Modelling when money actually lands and leaves, which is a different question from whether you are profitable.</li>
+<li><strong>Decision support.</strong> Running the numbers on a specific decision before it is made: a hire, a price change, a new lease, a large order, a piece of equipment.</li>
+</ul>
+
+<h2>Why your business needs it</h2>
+<p>The practical case is that most costly business decisions are made on instinct plus a look at the bank balance, and both are unreliable. The bank balance includes VAT you are holding for HMRC and deposits for work you have not yet delivered, so it tells you very little about performance.</p>
+<p>Management accounting replaces that with specifics. It shows which parts of the business make money and which quietly consume it. It catches margin erosion in month two rather than at the year end. It gives you a defensible set of numbers when you are talking to a lender or an investor. And it means the tax bill is something you saw coming and set money aside for, rather than a surprise arriving with a deadline attached.</p>
+
+<h2>Do you need to be big enough for this?</h2>
+<p>The common assumption is that management accounting belongs to businesses large enough to employ a finance team. That was true when it meant hiring a qualified accountant in-house. It is not true now: cloud accounting has made the underlying data available continuously, and the work of turning it into a monthly pack with proper commentary can be done by an outsourced management accountant for a fraction of a salary.</p>
+<p>In practice, the trigger is rarely headcount or turnover. It is complexity. Once you have more than one income stream, staff on payroll, stock, or any meaningful gap between doing the work and getting paid for it, the numbers stop being obvious and start needing to be produced. Some businesses reach that point at £150k of turnover and some not until well beyond £1m.</p>
+
+<h2>How it works in practice</h2>
+<p>For most small businesses the rhythm is monthly. Bookkeeping is kept current through the month so the data is reliable. Shortly after month end the accounts are closed, the pack is produced, and it is talked through, not just emailed, so the commentary turns into decisions. The forecast is updated with the actuals just recorded, and anything that needs acting on is agreed before the next month is halfway gone.</p>
+<p>That last step is what separates management accounting from reporting. A pack that nobody discusses is just a tidier version of the year-end accounts.</p>
+
+<p>This is general information rather than advice tailored to your business. If you would like to see what a monthly pack would look like built around your own numbers, our <a href="/services#management">management accounting service</a> is built for exactly this, or you can <a href="/contact">get in touch</a> to talk it through.</p>`,
   },
   {
     slug: 'common-accounting-terms-explained-for-business-owners',
@@ -123,6 +415,15 @@ export const posts: Post[] = [
     date: '2025-03-16',
     excerpt:
       'A plain-English glossary of the accounting terms that come up most often in conversations with your accountant.',
+    metaTitle: 'Common Accounting Terms Explained for Business Owners',
+    metaDescription:
+      'A plain-English glossary of the accounting terms small business owners actually meet, from accruals and gross margin to debtors, creditors and depreciation.',
+    related: [
+      'understanding-your-balance-sheet-what-small-business-owners-need-to-know',
+      'how-to-read-your-management-accounts-a-beginners-guide-for-owners',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
     body: `<p>Accounting has a lot of vocabulary that gets used casually in conversation without ever being properly explained. Here are the terms that come up most often, in plain English.</p>
 
 <h2>The core numbers</h2>
@@ -163,6 +464,15 @@ export const posts: Post[] = [
     date: '2025-05-12',
     excerpt:
       'What to actually check before you hire a management accountant, beyond "do they seem nice".',
+    metaTitle: 'How to Choose a Management Accountant for a Small Business',
+    metaDescription:
+      'What to look for in a management accountant, the questions worth asking, how fees are usually structured, and the warning signs to avoid.',
+    related: [
+      'what-is-management-accounting-and-why-does-your-business-need-it',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+      'how-to-choose-an-accountant-near-you-local-vs-remote-explained',
+      'choosing-a-xero-certified-accountant-what-xero-partner-actually-means',
+    ],
     body: `<p>Most small business owners choose an accountant the way they choose a plumber: a recommendation, a quick call, and a hope that it works out. That's fine for a one-off job, but a management accountant is someone you'll be sharing your numbers with every month, and a poor fit is expensive to unwind. Here's what's worth checking before you commit.</p>
 
 <h2>Decide what you actually need</h2>
@@ -192,6 +502,15 @@ export const posts: Post[] = [
     date: '2025-05-28',
     excerpt:
       'What each role actually covers, what they cost, and how to tell which stage your business is at.',
+    metaTitle: 'Virtual Financial Controller vs In-House Finance Director',
+    metaDescription:
+      'How a virtual financial controller compares with hiring an in-house finance director on cost, coverage and control, and which suits which stage of business.',
+    related: [
+      'what-is-a-virtual-financial-controller-and-how-do-they-work',
+      'should-you-outsource-your-finance-function-a-founders-checklist',
+      'growing-a-business-in-glasgow-the-finance-function-you-need-at-each-stage',
+      'what-is-management-accounting-and-why-does-your-business-need-it',
+    ],
     body: `<p>At some point, most growing small businesses hit the same wall: the owner is still doing the numbers, or a part-time bookkeeper is keeping the basics ticking over, but nobody is actually steering the finances. The two obvious next steps are hiring a finance director in-house or bringing in a <a href="/services#virtual">virtual financial controller</a>. They can do similar jobs, but they suit different businesses.</p>
 
 <h2>What each role actually does</h2>
@@ -224,6 +543,15 @@ export const posts: Post[] = [
     date: '2025-06-11',
     excerpt:
       'A practical comparison of the two most common cloud bookkeeping platforms, without the marketing spin.',
+    metaTitle: 'Xero vs QuickBooks: Which Is Right for Your Business?',
+    metaDescription:
+      'How Xero and QuickBooks compare for UK small businesses on features, pricing and day-to-day use, and how to pick between them.',
+    related: [
+      'choosing-a-xero-certified-accountant-what-xero-partner-actually-means',
+      'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+      'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
+    ],
     body: `<p>Xero and QuickBooks are the two platforms we get asked about most, and honestly, both are capable, HMRC-recognised, cloud-based systems that can run a small business's bookkeeping perfectly well. The right choice usually comes down to your sector, your existing habits, and what you want to connect to it, not which one is "better" in the abstract.</p>
 
 <h2>Where they're similar</h2>
@@ -257,6 +585,15 @@ export const posts: Post[] = [
     date: '2025-06-25',
     excerpt:
       'What drives accountancy fees up or down, and the questions to ask before you compare quotes.',
+    metaTitle: 'How Much Does an Accountant Cost for a Small Business? (UK)',
+    metaDescription:
+      'What UK accountants charge small businesses, how fees are structured for sole traders and limited companies, what drives the price up, and what should be included.',
+    related: [
+      'how-to-choose-a-management-accountant-for-your-small-business',
+      'annual-accounts-for-uk-businesses-a-complete-guide-for-small-and-micro-companies',
+      'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
+      'should-you-outsource-your-finance-function-a-founders-checklist',
+    ],
     body: `<p>"How much does an accountant cost?" is one of the first questions almost every small business owner asks, and it's also one of the hardest to answer with a single figure. Fees depend on what's included, how complex your business is, and how the work is priced. Here's what actually drives the number.</p>
 
 <h2>What affects the price</h2>
@@ -289,6 +626,15 @@ export const posts: Post[] = [
     date: '2025-07-09',
     excerpt:
       'What a virtual financial controller actually does day to day, and how the working relationship is set up.',
+    metaTitle: 'What Is a Virtual Financial Controller & How Do They Work?',
+    metaDescription:
+      'What a virtual financial controller does, how the role works in practice for a small business, what it costs compared with hiring in-house, and when you need one.',
+    related: [
+      'virtual-financial-controller-vs-in-house-finance-director',
+      'should-you-outsource-your-finance-function-a-founders-checklist',
+      'what-is-management-accounting-and-why-does-your-business-need-it',
+      'growing-a-business-in-glasgow-the-finance-function-you-need-at-each-stage',
+    ],
     body: `<p>"Virtual financial controller" sounds like a job title invented for a LinkedIn post, but the role behind it solves a real problem: small businesses often reach a point where they need senior financial oversight (not just bookkeeping) but aren't ready to hire a full-time finance director. This is what the role covers and how it typically works in practice.</p>
 
 <h2>What the role actually covers</h2>
@@ -328,6 +674,15 @@ export const posts: Post[] = [
     date: '2025-07-23',
     excerpt:
       'The practical differences in record-keeping, tax and paperwork between trading as a sole trader and running a limited company, and what actually changes when you switch.',
+    metaTitle: 'Sole Trader vs Limited Company: What Changes for Your Accounts',
+    metaDescription:
+      'What actually changes when you move from sole trader to limited company: filing obligations, tax, record keeping, and the admin that comes with it.',
+    related: [
+      'annual-accounts-for-uk-businesses-a-complete-guide-for-small-and-micro-companies',
+      'hmrc-self-assessment-a-guide-for-small-business-owners-and-sole-traders',
+      'understanding-directors-loan-accounts-what-every-director-should-know',
+      'companies-house-filing-deadlines-every-small-business-owner-should-know',
+    ],
     body: `<p>Choosing between trading as a sole trader and setting up a limited company is one of the first big decisions most business owners make, and revisiting it later is common too. The two structures are taxed differently and, just as importantly, they require different accounting records. Understanding what actually changes helps you decide with your eyes open, rather than guessing.</p>
 
 <h2>Who Owns the Money</h2>
@@ -364,6 +719,15 @@ export const posts: Post[] = [
     date: '2025-08-06',
     excerpt:
       'When small businesses are legally required to register for VAT, when registering early can make sense, and what changes in your bookkeeping once you do.',
+    metaTitle: 'VAT Registration Explained: When & How to Register',
+    metaDescription:
+      'When a UK small business must register for VAT, how the threshold works, how to register, and what changes for your bookkeeping once you are registered.',
+    related: [
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+      'sole-trader-vs-limited-company-what-changes-for-your-accounts',
+      'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
+      'companies-house-filing-deadlines-every-small-business-owner-should-know',
+    ],
     body: `<p>VAT registration catches a lot of small business owners off guard, not because the rules are complicated, but because it's easy to lose track of turnover as a business grows. Get it wrong and you can face backdated VAT bills and penalties, so it's worth understanding how registration actually works before you're anywhere near the line.</p>
 
 <h2>When Registration Is Compulsory</h2>
@@ -403,6 +767,15 @@ export const posts: Post[] = [
     date: '2025-08-20',
     excerpt:
       'A plain-English walkthrough of the profit and loss, balance sheet and cash position in your management accounts, and what to actually look for each month.',
+    metaTitle: 'How to Read Management Accounts: A Beginner’s Guide',
+    metaDescription:
+      'A plain-English guide to reading a monthly management accounts pack: what each section tells you, which numbers matter most, and the questions to ask.',
+    related: [
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+      'understanding-your-balance-sheet-what-small-business-owners-need-to-know',
+      'common-accounting-terms-explained-for-business-owners',
+      'why-every-business-needs-a-profit-and-loss-budget',
+    ],
     body: `<p>Getting a set of management accounts every month is only useful if you know what you're looking at. Too many owners file them away unread, or skim the bottom line and move on. A little time spent understanding the structure means you'll spot problems, and opportunities, much earlier.</p>
 
 <h2>The Profit and Loss Account</h2>
@@ -445,6 +818,15 @@ export const posts: Post[] = [
     date: '2025-09-03',
     excerpt:
       'Why a profitable business can still run out of cash, the most common causes, and the habits that keep cash flow under control.',
+    metaTitle: 'Cash Flow vs Profit: Why Profitable Businesses Run Out of Money',
+    metaDescription:
+      'Why a profitable business can still run short of cash, the timing gaps that cause it, and what to watch so you see a squeeze coming.',
+    related: [
+      'how-to-build-a-cash-flow-forecast-from-scratch',
+      'why-forecasting-matters-and-how-often-should-you-update-yours',
+      'understanding-your-balance-sheet-what-small-business-owners-need-to-know',
+      'why-every-business-needs-a-profit-and-loss-budget',
+    ],
     body: `<p>It's one of the most common shocks in business: the accounts say you made a profit, but there's barely any money in the bank, or worse, you can't pay a supplier on time. Profit and cash are related, but they are not the same thing, and confusing them is one of the fastest ways for an otherwise healthy business to run into real trouble.</p>
 
 <h2>Why Profit Isn't Cash</h2>
@@ -523,6 +905,15 @@ export const posts: Post[] = [
     date: '2025-10-01',
     excerpt:
       'The two Companies House deadlines every limited company has to meet each year, what happens if you miss them, and the habits that keep you ahead of both.',
+    metaTitle: 'Companies House Filing Deadlines: A Small Business Guide',
+    metaDescription:
+      'The Companies House and HMRC deadlines every UK small business owner should have in the diary, what happens if you miss them, and how the penalties escalate.',
+    related: [
+      'annual-accounts-for-uk-businesses-a-complete-guide-for-small-and-micro-companies',
+      'hmrc-self-assessment-a-guide-for-small-business-owners-and-sole-traders',
+      'sole-trader-vs-limited-company-what-changes-for-your-accounts',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+    ],
     body: `<p>Running a limited company means answering to two different regulators on two different timetables, and it's easy to lose track of which deadline belongs to which. Companies House and HMRC are separate bodies with separate filing requirements, and confusing the two (or simply forgetting one is coming) is one of the most common, and most avoidable, compliance mistakes small business owners make. Missing either can mean automatic penalties, even if the business itself is doing perfectly well.</p>
 
 <h2>Two regulators, two sets of deadlines</h2>
@@ -553,6 +944,15 @@ export const posts: Post[] = [
     date: '2025-10-15',
     excerpt:
       'How to weigh a local, in-person accountant against a remote, cloud-based one, what that remote relationship actually looks like day to day, and when in-person still matters.',
+    metaTitle: 'Choosing an Accountant Near You: Local vs Remote Explained',
+    metaDescription:
+      'Whether an accountant needs to be local any more, what you gain and lose working remotely, and how to judge either option properly.',
+    related: [
+      'how-to-choose-a-management-accountant-for-your-small-business',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+      'finance-help-for-small-businesses-in-uddingston-and-south-lanarkshire-a-local-guide',
+      'growing-a-business-in-glasgow-the-finance-function-you-need-at-each-stage',
+    ],
     body: `<p>Search "accountant near me" and you'll get a map full of pins, but proximity on a map tells you very little about whether that firm will actually understand your business or answer the phone when you need them. The rise of cloud accounting software has genuinely changed what "near you" needs to mean, and it's worth understanding the real trade-offs before you choose based on postcode alone.</p>
 
 <h2>What "local" used to guarantee</h2>
@@ -580,6 +980,15 @@ export const posts: Post[] = [
     date: '2025-10-29',
     excerpt:
       'What a bookkeeper actually records, reconciles and checks day to day, and how the role differs from what your accountant does.',
+    metaTitle: 'What Does a Bookkeeper Actually Do? A Plain-English Guide',
+    metaDescription:
+      'What a bookkeeper does day to day, how bookkeeping differs from accounting, what it costs, and when a small business should bring one in.',
+    related: [
+      '5-signs-your-business-has-outgrown-its-current-bookkeeping-setup',
+      'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+    ],
     body: `<p>"Bookkeeping" is one of those words every business owner has heard a hundred times without necessarily knowing what it actually involves day to day. It sounds administrative, even boring, which is part of why it gets neglected; right up until the missing receipts, unreconciled bank account or messy spreadsheet becomes a real problem at year end.</p>
 
 <h2>Recording every transaction</h2>
@@ -605,6 +1014,15 @@ export const posts: Post[] = [
     date: '2025-11-12',
     excerpt:
       'Five practical signs that the bookkeeping setup which worked when you started is no longer keeping pace with the business.',
+    metaTitle: '5 Signs Your Business Has Outgrown Its Bookkeeping Setup',
+    metaDescription:
+      'The warning signs that your bookkeeping no longer fits the business, and what to move to when spreadsheets and year-end catch-ups stop working.',
+    related: [
+      'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
+      'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
+      'should-you-outsource-your-finance-function-a-founders-checklist',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
     body: `<p>Most small businesses start with a bookkeeping setup that fits the moment: a spreadsheet, an hour a week, maybe a bit of software nobody quite trusts yet. That's often the right call early on. But businesses grow in fits and starts, and bookkeeping setups don't automatically scale with them, which is how a system that worked fine at the start quietly becomes the thing holding you back.</p>
 
 <h2>1. You can't answer basic questions quickly</h2>
@@ -630,6 +1048,15 @@ export const posts: Post[] = [
     date: '2025-11-26',
     excerpt:
       'A step-by-step approach to building a cash flow forecast from your real numbers, so you can see a cash problem coming before it happens.',
+    metaTitle: 'How to Build a Cash Flow Forecast From Scratch (Step by Step)',
+    metaDescription:
+      'A step-by-step guide to building a cash flow forecast for a small business: what to include, how to time money in and out, and how to keep it current.',
+    related: [
+      'why-forecasting-matters-and-how-often-should-you-update-yours',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+      'why-every-business-needs-a-profit-and-loss-budget',
+      'bookkeeping-for-seasonal-businesses-planning-around-peaks-and-troughs',
+    ],
     body: `<p>Profit and cash are not the same thing, and plenty of profitable businesses have run into serious trouble because they ran out of cash before the profit ever turned up in the bank. A cash flow forecast is how you see that coming before it happens, and building one from scratch is far less daunting than it sounds once you break it into its actual parts.</p>
 
 <h2>Start with your actual cash position</h2>
@@ -659,6 +1086,15 @@ export const posts: Post[] = [
     date: '2025-12-10',
     excerpt:
       'What a balance sheet actually shows, the three things it is built from, and why it matters as much as your profit and loss.',
+    metaTitle: 'Understanding Your Balance Sheet: A Small Business Guide',
+    metaDescription:
+      'What a balance sheet shows, how the three sections fit together, and the handful of figures a small business owner should actually watch.',
+    related: [
+      'how-to-read-your-management-accounts-a-beginners-guide-for-owners',
+      'common-accounting-terms-explained-for-business-owners',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
     body: `<p>Most business owners can tell you roughly what they made last month, but far fewer can tell you what their business is actually worth on paper. That is what a balance sheet is for. It does not show whether you had a good month: it shows what your business owns, what it owes, and what is left for you, all in one snapshot.</p>
 
 <h2>What the balance sheet actually is</h2>
@@ -693,6 +1129,15 @@ export const posts: Post[] = [
     date: '2026-01-14',
     excerpt:
       'How Self Assessment actually works, what you need to keep track of during the year, and how to avoid the last-minute scramble.',
+    metaTitle: 'HMRC Self Assessment: A Guide for Sole Traders',
+    metaDescription:
+      'How Self Assessment works for sole traders and small business owners: who needs to file, the deadlines, what you can claim, and how to avoid the common mistakes.',
+    related: [
+      'sole-trader-vs-limited-company-what-changes-for-your-accounts',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+      'companies-house-filing-deadlines-every-small-business-owner-should-know',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+    ],
     body: `<p>Self Assessment causes more stress than it needs to, usually because it gets treated as a once-a-year event rather than something built up gradually through the year. If you are a sole trader, a company director, or have income HMRC does not already tax at source, understanding how the system fits together makes the whole process far less painful.</p>
 
 <h2>Who needs to file a return</h2>
@@ -729,6 +1174,15 @@ export const posts: Post[] = [
     date: '2026-02-11',
     excerpt:
       'What Xero Partner status actually signals about an accountant, and the questions worth asking before you choose one.',
+    metaTitle: 'Xero Certified Accountant: What Xero Partner Actually Means',
+    metaDescription:
+      'What Xero certification and Xero Partner status actually mean, what the tiers signify, and what to look for when choosing a Xero accountant.',
+    related: [
+      'xero-vs-quickbooks-which-bookkeeping-software-is-right-for-your-business',
+      'how-to-choose-a-management-accountant-for-your-small-business',
+      'what-does-a-bookkeeper-actually-do-a-plain-english-guide',
+      'making-tax-digital-what-it-means-for-your-bookkeeping',
+    ],
     body: `<p>If you have started looking for an accountant, you have probably noticed a lot of them mention Xero somewhere on their website. Not all of those mentions mean the same thing. "Xero Partner" is a specific status, not just a claim that a firm uses the software, and knowing the difference can save you from switching accountants again in a year's time.</p>
 
 <h2>What Xero Partner actually means</h2>
@@ -819,6 +1273,15 @@ export const posts: Post[] = [
     date: '2026-04-22',
     excerpt:
       'The baseline frequency most small businesses should stick to, and the signs that mean you need to be looking more often than that.',
+    metaTitle: 'How Often Should You Review Your Management Accounts?',
+    metaDescription:
+      'How frequently to review management accounts, what to look at each month, and why the review conversation matters more than the pack itself.',
+    related: [
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+      'how-to-read-your-management-accounts-a-beginners-guide-for-owners',
+      'why-forecasting-matters-and-how-often-should-you-update-yours',
+      'why-every-business-needs-a-profit-and-loss-budget',
+    ],
     body: `<p>Plenty of business owners only look properly at their numbers when the accountant sends them a set of accounts, or once a year at tax return time. That's enough to stay compliant, but it's not enough to actually run the business, because by the time an annual set of accounts lands, whatever it's telling you has usually already happened. The right frequency for reviewing management accounts depends on your business, but there's a sensible baseline to start from.</p>
 
 <h2>Monthly is the baseline for most small businesses</h2>
@@ -886,6 +1349,15 @@ export const posts: Post[] = [
     date: '2026-05-20',
     excerpt:
       'What Making Tax Digital actually requires from your bookkeeping, and the habits that make compliance straightforward rather than a scramble.',
+    metaTitle: 'Making Tax Digital: What It Means for Your Bookkeeping',
+    metaDescription:
+      'What Making Tax Digital requires, who it applies to and when, and the practical changes it makes to how you keep your records.',
+    related: [
+      'vat-registration-explained-when-and-how-small-businesses-must-register',
+      'bookkeeping-made-simple-what-every-business-owner-needs-to-know',
+      'hmrc-self-assessment-a-guide-for-small-business-owners-and-sole-traders',
+      'xero-vs-quickbooks-which-bookkeeping-software-is-right-for-your-business',
+    ],
     body: `<p>Making Tax Digital (MTD) has been rolled out in stages across different taxes and different types of business, and it's easy to lose track of what actually applies to you and when. At its core, though, MTD changes one thing consistently: how your records need to be kept and how returns get filed. Understanding that principle matters more than memorising every phase of the rollout.</p>
 
 <h2>What Making Tax Digital actually requires</h2>
@@ -917,6 +1389,15 @@ export const posts: Post[] = [
     date: '2026-06-03',
     excerpt:
       'Why pricing on gut feel erodes margin without you noticing, and a straightforward way to price that protects what you actually take home.',
+    metaTitle: 'How to Set Prices That Actually Protect Your Margin',
+    metaDescription:
+      'A practical approach to pricing for small businesses: working out true delivery cost, setting a target margin, and holding it when costs move.',
+    related: [
+      'break-even-analysis-explained-know-the-number-you-need-to-hit',
+      'why-every-business-needs-a-profit-and-loss-budget',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+    ],
     body: `<p>A lot of small business pricing decisions get made on gut feel: what competitors seem to charge, what feels "about right," or simply what a price was last year with a bit added on. None of that tells you whether a price actually protects your margin once every cost is accounted for. Pricing well isn't about charging more for its own sake, it's about making sure the number you charge actually leaves you with a profit once everything else is paid for.</p>
 
 <h2>Start from your costs, not your competitors</h2>
@@ -945,6 +1426,15 @@ export const posts: Post[] = [
     date: '2026-06-17',
     excerpt:
       'The questions to work through before deciding whether outsourcing your finance function makes sense for your business right now.',
+    metaTitle: 'Should You Outsource Your Finance Function? A Checklist',
+    metaDescription:
+      'A founder’s checklist for deciding whether to outsource finance: what to hand over, what to keep in-house, and how to judge the cost.',
+    related: [
+      'what-is-a-virtual-financial-controller-and-how-do-they-work',
+      'virtual-financial-controller-vs-in-house-finance-director',
+      'how-much-does-an-accountant-cost-for-a-small-business-in-the-uk',
+      '5-signs-your-business-has-outgrown-its-current-bookkeeping-setup',
+    ],
     body: `<p>At some point almost every founder asks whether it's time to stop doing the books themselves, or to reconsider whoever currently does them, and bring in proper outsourced support instead. It's rarely an obvious yes or no: it depends on how much time finance is taking, how much you trust the numbers you currently see, and what stage the business is at. Here's a straightforward way to think it through.</p>
 
 <h2>How much of your time is finance actually taking?</h2>
@@ -984,6 +1474,15 @@ export const posts: Post[] = [
     date: '2026-07-01',
     excerpt:
       'What a directors’ loan account actually is, why an overdrawn one has real tax consequences, and how to keep it recorded properly.',
+    metaTitle: 'Director\'s Loan Accounts Explained: What Directors Should Know',
+    metaDescription:
+      'What a director’s loan account is, what happens when it is overdrawn or in credit, the tax charges that can apply, and how to keep it clean.',
+    related: [
+      'sole-trader-vs-limited-company-what-changes-for-your-accounts',
+      'annual-accounts-for-uk-businesses-a-complete-guide-for-small-and-micro-companies',
+      'common-accounting-terms-explained-for-business-owners',
+      'hmrc-self-assessment-a-guide-for-small-business-owners-and-sole-traders',
+    ],
     body: `<p>If you've ever taken money out of your limited company, or put your own money in, outside of salary or dividends, you almost certainly have a directors' loan account, whether or not you've ever thought of it that way. It's one of the most misunderstood corners of running a company, and the mistakes usually surface at the worst possible time; when your accounts are being finalised, or when HMRC comes asking questions.</p>
 
 <h2>What a Directors' Loan Account Actually Is</h2>
@@ -1020,6 +1519,15 @@ export const posts: Post[] = [
     date: '2026-07-15',
     excerpt:
       'How to work out the exact sales figure your business needs to hit before it starts making money, and why that number moves more than you think.',
+    metaTitle: 'Break-Even Analysis Explained: Know the Number You Need to Hit',
+    metaDescription:
+      'How to calculate your break-even point, what it tells you about pricing and fixed costs, and how to use it when planning a hire or a price change.',
+    related: [
+      'how-to-set-prices-that-actually-protect-your-margin',
+      'why-every-business-needs-a-profit-and-loss-budget',
+      'cash-flow-vs-profit-why-your-business-can-be-profitable-and-still-run-out-of-money',
+      'what-are-management-accounts-and-why-every-small-business-should-use-them',
+    ],
     body: `<p>Ask most business owners how much they need to sell each month just to cover their costs, and you'll usually get a rough guess rather than a real answer. Break-even analysis turns that guess into an actual number: the point at which income exactly covers costs, with nothing left over and nothing lost. Knowing it changes how you price, how you plan, and how nervous you should be about a quiet month.</p>
 
 <h2>What Break-Even Actually Means</h2>
@@ -1179,4 +1687,60 @@ export const posts: Post[] = [
 
 export function getPost(slug: string) {
   return posts.find((post) => post.slug === slug);
+}
+
+/**
+ * Stop-words stripped before deriving related articles from titles, so the
+ * overlap score is driven by topic words ("forecast", "bookkeeping", "vat")
+ * rather than the filler every title shares.
+ */
+const TITLE_STOP_WORDS = new Set([
+  'a', 'an', 'and', 'are', 'as', 'at', 'be', 'business', 'businesses', 'by', 'can', 'do',
+  'does', 'every', 'for', 'from', 'guide', 'how', 'i', 'in', 'is', 'it', 'its', 'know',
+  'my', 'need', 'needs', 'of', 'on', 'or', 'own', 'owner', 'owners', 'should', 'small',
+  'so', 'that', 'the', 'their', 'them', 'this', 'to', 'up', 'use', 'we', 'what', 'when',
+  'which', 'who', 'why', 'with', 'you', 'your', 'yours',
+]);
+
+function topicWords(title: string) {
+  return new Set(
+    title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter((word) => word.length > 2 && !TITLE_STOP_WORDS.has(word)),
+  );
+}
+
+/**
+ * Internal links for a post. Uses the hand-picked `related` list where one
+ * exists, and otherwise falls back to the closest articles by title-topic
+ * overlap, so no article is ever a dead end for a reader or a crawler.
+ */
+export function getRelatedPosts(slug: string, limit = 4): Post[] {
+  const post = getPost(slug);
+  if (!post) return [];
+
+  if (post.related?.length) {
+    const picked = post.related
+      .map((relatedSlug) => getPost(relatedSlug))
+      .filter((related): related is Post => related !== undefined && related.slug !== slug);
+    if (picked.length) return picked.slice(0, limit);
+  }
+
+  const words = topicWords(post.title);
+  return posts
+    .filter((candidate) => candidate.slug !== slug)
+    .map((candidate) => {
+      const candidateWords = topicWords(candidate.title);
+      let score = 0;
+      words.forEach((word) => {
+        if (candidateWords.has(word)) score += 1;
+      });
+      return { candidate, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.candidate.slug.localeCompare(b.candidate.slug))
+    .slice(0, limit)
+    .map((entry) => entry.candidate);
 }
