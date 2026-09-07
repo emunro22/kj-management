@@ -48,6 +48,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
+  // /privacy-policy and /terms carry robots noindex, so they are deliberately
+  // left out of the sitemap: submitting a URL you also tell Google not to index
+  // is a contradictory signal and shows up as "Excluded by noindex" in the
+  // Page indexing report.
   const womenInBusinessPages = womenInBusinessQueries.map((entry) => ({
     url: `${site.url}/women-in-business/${entry.slug}`,
     lastModified: new Date(),
@@ -61,7 +65,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...areaHubs,
     ...areaServices,
     ...womenInBusinessPages,
-    { url: `${site.url}/privacy-policy`, lastModified: new Date(), priority: 0.3 },
-    { url: `${site.url}/terms`, lastModified: new Date(), priority: 0.3 },
   ];
 }
