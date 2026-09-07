@@ -9,6 +9,7 @@ import CtaBand from '@/components/CtaBand';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { areas, getArea } from '@/data/areas';
 import { services, getServiceByKeywordSlug } from '@/data/services';
+import { getAngle } from '@/data/areaServiceAngles';
 import { breadcrumbSchema, faqSchema, areaServiceSchema } from '@/lib/schema';
 
 type Params = { params: Promise<{ area: string; service: string }> };
@@ -27,9 +28,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   const aliasLabels = service.aliases.map((a) => a.label);
 
+  // Prefer the town-specific opening sentence over the shared service blurb, so
+  // the 22 pages for a given service do not all present the same snippet.
+  const angle = getAngle(area.slug, service.slug);
+  const localSentence = angle?.angle.split('. ')[0];
+  const description = localSentence
+    ? `${service.title} for businesses in ${area.name}, ${area.region}. ${localSentence}.`.slice(0, 300)
+    : `${service.title} for small businesses in ${area.name}, ${area.region}. ${service.blurb}`;
+
   return {
     title: `${service.title} in ${area.name}`,
-    description: `${service.title} for small businesses in ${area.name}, ${area.region}. ${service.blurb}`,
+    description,
     keywords: [
       `${service.keyword} ${area.name}`,
       ...aliasLabels.map((label) => `${label} ${area.name}`),
@@ -51,16 +60,19 @@ export default async function AreaServicePage({ params }: Params) {
     .map((n) => getArea(n))
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
+  // Copy written for this specific town and service. Without it these 154 pages
+  // shared 55-57% of their phrasing with each other and Google was declining to
+  // index most of them.
+  const angle = getAngle(area.slug, service.slug);
+
   const aliasLabels = service.aliases.map((a) => a.label);
-  const aliasFaq = {
-    question: `Do you offer ${aliasLabels[0]} services in ${area.name}?`,
-    answer: `Yes, some clients know this as ${
-      aliasLabels.length > 1
-        ? `${aliasLabels.slice(0, -1).join(', ')} or ${aliasLabels[aliasLabels.length - 1]}`
-        : aliasLabels[0]
-    }. It's the same service, delivered as part of our ${service.title} work for businesses in ${area.name}.`,
-  };
-  const pageFaqs = [...area.localFaqs, aliasFaq];
+
+  // The alias wording used to appear twice on the page, once as a paragraph and
+  // again as an FAQ, identically across all 22 towns for a given service. It is
+  // now stated once, compactly, in the paragraph below.
+  // The service-specific local question leads, since it is the one unique to
+  // this page rather than repeated across every service page for the town.
+  const pageFaqs = [...(angle ? [angle.faq] : []), ...area.localFaqs];
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
@@ -101,18 +113,26 @@ export default async function AreaServicePage({ params }: Params) {
             <h2 className="text-3xl leading-tight text-ink sm:text-4xl">
               {service.title} Built Around {area.name} Businesses
             </h2>
-            <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">{service.intro}</p>
+            {angle ? (
+              <p className="mt-5 border-l-[3px] border-brand pl-5 text-[17px] leading-[1.8] text-ink-soft">
+                {angle.angle}
+              </p>
+            ) : null}
             <p className="mt-5 text-[17px] leading-[1.8] text-ink-soft">{area.summary}</p>
             {aliasLabels.length ? (
               <p className="mt-5 text-[15px] leading-[1.7] text-ink-muted">
-                Some {area.name} business owners search for this as{' '}
+                Also searched as{' '}
                 {aliasLabels.map((label, i) => (
                   <span key={label}>
                     {i > 0 ? (i === aliasLabels.length - 1 ? ' or ' : ', ') : ''}
                     <strong className="font-semibold text-ink">{label}</strong>
                   </span>
                 ))}
-                , it&rsquo;s the same service under the same roof.
+                .{' '}
+                <Link href={`/services#${service.slug}`} className="text-brand hover:underline">
+                  How our {service.title.toLowerCase()} service works
+                </Link>
+                .
               </p>
             ) : null}
           </Reveal>
