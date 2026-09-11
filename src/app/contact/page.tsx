@@ -67,7 +67,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-surface-grey py-20 lg:py-24">
+      <section className="relative isolate bg-surface-grey py-20 lg:py-24">
         <Image
           src="/images/cta-band.png"
           alt=""

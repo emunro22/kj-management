@@ -70,7 +70,7 @@ export default function BookCta({
       <div
         id={panelId}
         hidden={!open}
-        className={`absolute top-[calc(100%+10px)] z-40 w-[min(22rem,calc(100vw-2.5rem))] border border-black/10 bg-white p-2 text-left shadow-[0_18px_44px_rgba(0,0,0,0.18)] ${
+        className={`absolute top-[calc(100%+10px)] z-50 w-[min(22rem,calc(100vw-2.5rem))] border border-black/10 bg-white p-2 text-left shadow-[0_18px_44px_rgba(0,0,0,0.18)] ${
           align === 'center' ? 'left-1/2 -translate-x-1/2' : 'left-0'
         }`}
       >
@@ -88,13 +88,7 @@ export default function BookCta({
             className={`flex items-center gap-3 border border-transparent px-3 py-3 transition-colors ${person.theme.hover}`}
           >
             <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
-              <Image
-                src={person.photo}
-                alt=""
-                fill
-                sizes="44px"
-                className="object-cover object-top"
-              />
+              <Image src={person.avatar} alt="" fill sizes="44px" className="object-cover" />
             </span>
             <span className="min-w-0">
               <span className="block font-display text-[15px] font-bold text-ink">

@@ -18,7 +18,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative isolate flex min-h-[620px] items-center overflow-hidden lg:min-h-[760px]">
+    <section className="relative isolate flex min-h-[620px] items-center lg:min-h-[760px]">
       <Image
         src="/images/hero.jpg"
         alt=""

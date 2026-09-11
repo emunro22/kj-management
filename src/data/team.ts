@@ -10,6 +10,7 @@ export const team = [
     calendly: site.calendlyKieran,
     cta: 'Book Kieran',
     photo: '/images/about-founders.png',
+    avatar: '/images/avatar-kieran.jpg',
     theme: {
       card: 'border-brand',
       badge: 'bg-brand-50 text-brand-700',
@@ -26,6 +27,7 @@ export const team = [
     calendly: site.calendlyElaine,
     cta: 'Book Elaine',
     photo: '/images/elaine.jpg',
+    avatar: '/images/avatar-elaine.jpg',
     theme: {
       card: 'border-pink-500',
       badge: 'bg-pink-50 text-pink-700',
