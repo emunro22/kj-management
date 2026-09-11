@@ -3,44 +3,18 @@ import Link from 'next/link';
 import { CalendarCheck } from 'lucide-react';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
-import { site } from '@/data/site';
+import { team } from '@/data/team';
 
-const people = [
-  {
-    name: 'Kieran Johnston',
-    role: 'Founder & Chartered Accountant',
-    blurb:
-      'Cash flow planning, forecasting, and virtual financial controller support for small business owners who want a proactive finance partner.',
-    href: '/about/kieran',
-    calendly: site.calendlyKieran,
-    cta: 'Book Kieran',
-    photo: '/images/about-founders.png',
-    theme: {
-      card: 'border-brand',
-      badge: 'bg-brand-50 text-brand-700',
-      btn: 'btn-brand',
-    },
-  },
-  {
-    name: 'Elaine Bryson',
-    role: 'Co-Founder & Chartered Accountant',
-    blurb:
-      'Works closely with women running their own businesses, bringing financial clarity and confidence to founders building something of their own.',
-    href: '/about/elaine',
-    calendly: site.calendlyElaine,
-    cta: 'Book Elaine',
-    photo: '/images/elaine.jpg',
-    theme: {
-      card: 'border-pink-500',
-      badge: 'bg-pink-50 text-pink-700',
-      btn: 'btn bg-pink-500 text-white hover:bg-pink-600 hover:shadow-[0_10px_28px_rgba(236,72,153,0.35)]',
-    },
-  },
-];
+const blurbs: Record<string, string> = {
+  'Kieran Johnston':
+    'Cash flow planning, forecasting, and virtual financial controller support for small business owners who want a proactive finance partner.',
+  'Elaine Bryson':
+    'Works closely with women running their own businesses, bringing financial clarity and confidence to founders building something of their own.',
+};
 
 export default function BookTeam() {
   return (
-    <section className="bg-white py-20 lg:py-24">
+    <section id="book" className="scroll-mt-[120px] bg-white py-20 lg:py-24">
       <div className="container-kj">
         <SectionHeading
           eyebrow="Free Consultation"
@@ -53,7 +27,7 @@ export default function BookTeam() {
         </p>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {people.map((person, i) => (
+          {team.map((person, i) => (
             <Reveal key={person.name} delay={i * 0.1}>
               <div
                 className={`flex h-full flex-col border-b-[3px] bg-surface-grey p-8 shadow-card transition-shadow duration-300 hover:shadow-cardHover ${person.theme.card}`}
@@ -76,7 +50,7 @@ export default function BookTeam() {
 
                 <h3 className="mt-3 text-2xl text-ink">{person.name}</h3>
                 <p className="mt-3 flex-1 text-[15px] leading-[1.8] text-ink-muted">
-                  {person.blurb}
+                  {blurbs[person.name]}
                 </p>
 
                 <div className="mt-7 flex flex-wrap items-center gap-4">
@@ -93,7 +67,7 @@ export default function BookTeam() {
                     href={person.href}
                     className="font-body text-sm font-medium uppercase tracking-[0.04em] text-ink underline underline-offset-4 hover:text-brand"
                   >
-                    About {person.name.split(' ')[0]}
+                    About {person.firstName}
                   </Link>
                 </div>
               </div>

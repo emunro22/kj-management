@@ -187,14 +187,9 @@ export default async function PostPage({ params }: Params) {
                 Glasgow, Lanarkshire and the rest of the UK
               </Link>
               . Want to talk it through?{' '}
-              <a
-                href={site.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-brand hover:underline"
-              >
+              <Link href="/#book" className="font-medium text-brand hover:underline">
                 Book a free consultation
-              </a>
+              </Link>
               .
             </p>
           </section>

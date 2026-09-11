@@ -1,4 +1,5 @@
-import { CalendarCheck, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import BookCta from './BookCta';
 import Reveal from './Reveal';
 import { site } from '@/data/site';
 
@@ -31,10 +32,7 @@ export default function CtaBand() {
           </p>
 
           <div className="mt-9">
-            <a href={site.calendly} target="_blank" rel="noopener noreferrer" className="btn-brand">
-              <CalendarCheck size={20} aria-hidden="true" />
-              Schedule a Free Consultation Now
-            </a>
+            <BookCta label="Schedule a Free Consultation Now" />
           </div>
         </Reveal>
       </div>

@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { CalendarCheck } from 'lucide-react';
-import { site } from '@/data/site';
+import BookCta from './BookCta';
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -54,10 +53,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="mt-10">
-          <a href={site.calendly} target="_blank" rel="noopener noreferrer" className="btn-brand">
-            <CalendarCheck size={20} aria-hidden="true" />
-            Schedule a Free Consultation
-          </a>
+          <BookCta />
         </motion.div>
       </motion.div>
     </section>

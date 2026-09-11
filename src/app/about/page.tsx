@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
 import SectionHeading from '@/components/SectionHeading';
+import BookCta from '@/components/BookCta';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { site } from '@/data/site';
 
@@ -163,14 +164,9 @@ export default function AboutPage() {
               From cash flow forecasting and budgeting to business planning and financial strategy,
               we ensure that you&rsquo;re not just managing numbers but using them to drive success.
             </p>
-            <a
-              href={site.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-brand mt-8"
-            >
-              Get the Financial Support You Deserve
-            </a>
+            <div className="mt-8">
+              <BookCta label="Get the Financial Support You Deserve" align="left" />
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Mail, MapPin } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
+import BookCta from '@/components/BookCta';
 import ContactForm from '@/components/ContactForm';
 import LetsGetInTouch from '@/components/LetsGetInTouch';
 import { WhatsAppGlyph } from '@/components/WhatsAppGlyph';
@@ -55,14 +56,9 @@ export default function ContactPage() {
               </DetailRow>
             </ul>
 
-            <a
-              href={site.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-brand mt-10"
-            >
-              Schedule a Free Consultation
-            </a>
+            <div className="mt-10">
+              <BookCta align="left" />
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
@@ -98,14 +94,9 @@ export default function ContactPage() {
               From cash flow forecasting and budgeting to business planning and financial strategy,
               we ensure that you&rsquo;re not just managing numbers but using them to drive success.
             </p>
-            <a
-              href={site.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-brand mt-9"
-            >
-              Get the Financial Support You Deserve
-            </a>
+            <div className="mt-9">
+              <BookCta label="Get the Financial Support You Deserve" />
+            </div>
           </Reveal>
         </div>
       </section>
