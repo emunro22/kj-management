@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
+import CookieConsent from '@/components/CookieConsent';
 import { site } from '@/data/site';
 import './globals.css';
 
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
         <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );
